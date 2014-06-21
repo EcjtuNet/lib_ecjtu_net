@@ -16,16 +16,23 @@ class ReaderInfo():
 				'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'})
 		f = opener.open(request)
 		html = f.read()
-		return html
+		return self.parse(html)
 	def parse(self, html):
-		info_regs = {
-			'ID' : re.compile(r'<span id="LblCarcCode">(\d)</span>'),
-			'name' : re.compile(r'<span id="LblreaderName">(.*)</span>'),
-			'fk' : re.compile(r'<span id="LblQfk">(.*)</span>'),
-			'borrowed' : re.compile(r'<span id="LblBrooyCount">(\d)</span>')}
-		print html
-		for i in info_regs:
-			print info_regs[i].match(html)
+		info = {}
+		info_reg = {
+			'ID' : r'<span id="LblCarcCode">(\d+)</span>',
+			'name' : r'<span id="LblreaderName">(.*)</span>',
+			'fk' : r'<span id="LblQfk">(.*)</span>',
+			'borrowed' : r'<span id="LblBrooyCount">(\d+)</span>'
+		}
+		for i in info_reg:
+			info[i] = re.findall(info_reg[i], html, re.M)[0]
+		borrowed = {}
+		borrowed_reg = r'<tr>\s+<td>(\d+)</td><td>(.*)</td><td>(.*)</td><td>(.*)</td><td>\s+(\d+)\s+<a href=\'(.*)\'>\s+续借</a>\s+</td><td>(.*)</td><td>(.*)</td>\s+</tr>'
+		borrowed = re.findall(borrowed_reg, html, re.M)
+		info['borrowed'] = borrowed
+		return info
+
 	def readerCookie(self, username, password=''):
 		cookies = urllib2.HTTPCookieProcessor()
 		opener = urllib2.build_opener(cookies)
@@ -44,5 +51,3 @@ class ReaderInfo():
 			data	= login_data)
 		f = opener.open(login_request)
 		return cookies
-
-ReaderInfo('20120310060426').parse(ReaderInfo('20120310060426').getInfo())
