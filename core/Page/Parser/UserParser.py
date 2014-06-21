@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from Parser import Parser
 
 class UserParser:
 	def __init__(self, html=''):
