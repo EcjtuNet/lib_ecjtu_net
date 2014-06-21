@@ -25,6 +25,7 @@ class Request:
 			data	= login_data)		
 		f = opener.open(login_request)
 		self.cookie = cookie
+		return self
 
 	def get(self, url):
 		return self.sendRequest()
