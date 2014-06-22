@@ -3,6 +3,7 @@
 from Page import Page
 from SearchParser import SearchParser
 from SearchRule import SearchRule
+from Request import Request
 
 class SearchPage(Page):
 	def __init__(self, rule):
@@ -11,9 +12,9 @@ class SearchPage(Page):
 		self.page = 1
 
 	def fetchHtml(self):
-		url = 'http://lib.ecjtu.jx.cn/gdweb/ScarchList.aspx?Page=' + str(self.page)
+		url = 'http://lib.ecjtu.jx.cn/gdweb/ScarchList.aspx?Page=' + str(self.page) #待修改
 		data = self.rule.make()
-		self.html = Request().post(url, data)
+		self._html = Request().post(url, data)
 		return self
 
 	def nextPage(self):

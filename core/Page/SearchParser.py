@@ -3,9 +3,10 @@
 from Parser import Parser
 import re
 
-class UserParser:
+class SearchParser:
 	def __init__(self, html=''):
-		self.html = html
+		if html :
+			self.html = html
 	def parse(self, html=''):
 		html = html if html else self.html
 		reg = r'<table width="100%" border="0">[\s\S]*'

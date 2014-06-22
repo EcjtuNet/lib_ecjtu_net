@@ -4,8 +4,9 @@ from Parser import Parser
 import re
 
 class UserParser(Parser):
-	def __init__(self, html):
-		self.html = html
+	def __init__(self, html=''):
+		if html :
+			self.html = html
 	def parse(self, html=''):
 		html = html if html else self.html
 		info = {}
@@ -20,5 +21,5 @@ class UserParser(Parser):
 		borrowed = {}
 		borrowed_reg = r'<tr>\s+<td>(\d+)</td><td>(.*)</td><td>(.*)</td><td>(.*)</td><td>\s+(\d+)\s+<a href=\'(.*)\'>\s+续借</a>\s+</td><td>(.*)</td><td>(.*)</td>\s+</tr>'
 		borrowed = re.findall(borrowed_reg, html, re.M)
-		info['borrowed'] = borrowed
+		info['books'] = borrowed
 		return info
