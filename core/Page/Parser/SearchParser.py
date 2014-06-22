@@ -7,7 +7,7 @@ class UserParser:
 	def __init__(self, html=''):
 		self.html = html
 	def parse(self, html=''):
-		html = html ? html : self.html
+		html = html if html else self.html
 		reg = r'<table width="100%" border="0">[\s\S]*'
 		reg += r"<a class='WL'.*>(.*)&nbsp[\s\S]*"
 		reg += r"索书号：(.*)&nbsp.*ISBN/ISSN：(.*)&nbsp[\s\S]*"

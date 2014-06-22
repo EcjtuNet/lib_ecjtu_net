@@ -7,7 +7,7 @@ class UserParser(Parser):
 	def __init__(self, html):
 		self.html = html
 	def parse(self, html=''):
-		html = html ? html : self.html
+		html = html if html else self.html
 		info = {}
 		info_reg = {
 			'ID' : r'<span id="LblCarcCode">(\d+)</span>',

@@ -12,7 +12,7 @@ class Page:
 		pass
 
 	def parseHtml(self, html=''):
-		return html ? self.parser.parse(html) : self.parser.parse(self.html)
+		return self.parser.parse(html) if html else self.parser.parse(self.html)
 
 	def html(self):
 		return self.html

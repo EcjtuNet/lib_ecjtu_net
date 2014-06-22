@@ -43,6 +43,6 @@ class Request:
 		if data:
 			request['data'] = data
 		request = urllib2.Request(request)
-		opener = self.cookie ? urllib2.build_opener(self.cookie) : urllib2.build_opener()
+		opener = urllib2.build_opener(self.cookie) if self.cookie else urllib2.build_opener()
 		f = opener.open(request)
 		return f.read()
