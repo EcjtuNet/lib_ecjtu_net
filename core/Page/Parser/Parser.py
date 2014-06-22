@@ -3,5 +3,5 @@
 import re
 
 class Parser():
-	def parse(self):
+	def __init__(self, html=''):
 		pass

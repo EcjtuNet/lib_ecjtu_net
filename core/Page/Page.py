@@ -7,3 +7,12 @@ from Request import Request
 class Page:
 	def __init__(self):
 		pass
+
+	def fetchHtml(self):
+		pass
+
+	def parseHtml(self, html=''):
+		return html ? self.parser.parse(html) : self.parser.parse(self.html)
+
+	def html(self):
+		return self.html

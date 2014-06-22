@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from Parser import Parser
+import re
 
-class UserParser:
-	def __init__(self, html=''):
+class UserParser(Parser):
+	def __init__(self, html):
 		self.html = html
 	def parse(self, html=''):
 		html = html ? html : self.html

@@ -5,11 +5,18 @@ from UserParser import UserParser
 
 class UserPage(Page):
 	def __init__(self, username, password=''):
+		self.parser = UserParser()
 		self.username = username
 		self.password = password
 
 	def fetchHtml(self):
-		return Request().setCookie(self.username, self.password).get('http://lib.ecjtu.jx.cn/gdweb/ReaderTable.aspx')
+		self.html = Request().setCookie(self.username, self.password).get('http://lib.ecjtu.jx.cn/gdweb/ReaderTable.aspx')
+		return self
 
-	def parseHtml(self, html):
-		return UserParser().parse(html)
+
+
+
+if __name__ == "__main__":
+	userpage = UserPage(20120310060426)
+	print userpage.fetchHtml().html()
+	print userpage.parseHtml()
