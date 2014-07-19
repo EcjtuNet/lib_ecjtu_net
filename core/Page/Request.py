@@ -29,17 +29,19 @@ class Request:
 		self.cookie = cookie
 		return self
 
-	def get(self, url):
-		return self.sendRequest(url)
+	def get(self, url, header=''):
+		return self.sendRequest(url, '', header)
 
-	def post(self, url, data):
-		return self.sendRequest(url, data)
+	def post(self, url, data, header=''):
+		return self.sendRequest(url, data, header)
 
-	def sendRequest(self, url, data=''):
+	def sendRequest(self, url, data='', header=''):
 		headers = {'Content-Type' : 'application/x-www-form-urlencoded', 
-			'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+			'Accept' : '*/*',
 			'Host' : '172.16.15.229',
 			'User-Agent' : 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'}
+		for i in header:
+			headers[i] = header[i]
 		if data :
 			request = urllib2.Request(url=url, headers=headers, data=data)
 		else :
