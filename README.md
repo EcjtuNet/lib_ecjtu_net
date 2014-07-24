@@ -16,11 +16,11 @@
 6. 微信版: 应有查询功能和借书查询两项功能。在以上序列1和2里划了下划线的微信需要有。
 
 #安装
-----
+
 	pip install -r `requirement.txt`
-	
+
 	由Redis强力驱动
 
 #启动
-----
+
 	gunicorn -b 0.0.0.0:4000 app:app
