@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import urllib2,urllib
-from cookielib import CookieJar
+import cookielib
 
 class Request:
 	def __init__(self):
-		pass
+		self.cookie = urllib2.HTTPCookieProcessor()
 
 	def setCookie(self, username, password=''):
 		self.username = username
@@ -36,10 +36,12 @@ class Request:
 		return self.sendRequest(url, data, header)
 
 	def sendRequest(self, url, data='', header=''):
-		headers = {'Content-Type' : 'application/x-www-form-urlencoded', 
+		headers = {
+			'Content-Type' : 'application/x-www-form-urlencoded', 
 			'Accept' : '*/*',
 			'Host' : '172.16.15.229',
-			'User-Agent' : 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36'}
+			'User-Agent' : 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36',
+}
 		for i in header:
 			headers[i] = header[i]
 		if data :

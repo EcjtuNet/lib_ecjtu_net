@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import cookielib
+import urllib2
 from Page import Page
 from SearchParser import SearchParser
 from SearchRule import SearchRule
@@ -10,11 +12,16 @@ class SearchPage(Page):
 		self.parser = SearchParser()
 		self.rule = rule
 		self.page = 1
+		self.BASE_URL = 'http://172.16.15.229'
 
 	def fetchHtml(self):
-		url = 'http://lib.ecjtu.jx.cn/gdweb/ScarchList.aspx?Page=' + str(self.page) #待修改
+		post_url = self.BASE_URL + '/gdweb/CombinationScarch.aspx'
+		get_url = self.BASE_URL + '/gdweb/ScarchList.aspx?page='+str(self.page)
 		data = self.rule.make()
-		self._html = Request().post(url, data)
+		r = Request()
+		self._html = r.post(post_url,data)
+		self._result = r.get(get_url)
+		print self._result
 		return self
 
 	def nextPage(self):
@@ -31,5 +38,5 @@ class SearchPage(Page):
 if __name__ == "__main__":
 	rule = SearchRule().add('title', 'python')
 	searchpage = SearchPage(rule)
-	print searchpage.fetchHtml().html()
+	print searchpage.fetchHtml()._html
 	print searchpage.parseHtml()
