@@ -39,7 +39,7 @@ class SearchRule:
 		}
 	def add(self, key, value):
 		if key in self.ruleTable:
-			self.rule[self.ruleTable[key]] = value
+			self.rule.setdefault(self.ruleTable[key],value)
 		return self
 	def make(self):
 		return urllib.urlencode(self.rule)

@@ -1,0 +1,2177 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+	查看我的借阅历史
+</title>
+    <style type="text/css">
+<!--
+.STYLE1 {color: #FFFFFF}
+.css {FONT-SIZE: 14px; LINE-HEIGHT: 18px
+}
+-->
+    </style>
+    <link href="Images/default.css" rel="stylesheet" type="text/css" /><link href="Images/hig.css" rel="stylesheet" type="text/css" /><link href="English/Images/Popover.css" rel="stylesheet" type="text/css" /><link href="English/Images/samples.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+<!--
+.style2 {COLOR: #0000ff }
+-->
+    </style>
+    <link href="Images/default.css" rel="stylesheet" type="text/css" /><link href="Images/samples.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" /><link href="Images/hig.css" rel="stylesheet" type="text/css" /></head>
+<body>
+    <form name="form1" method="post" action="HisdoryList.aspx?PageNo=1" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+<!--
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+
+
+<script src="/gdweb/WebResource.axd?d=yw_OucaS4d8Pc_D3deN-gg2&amp;t=635019793903086291" type="text/javascript"></script>
+
+
+<script src="/gdweb/ScriptResource.axd?d=5mHhbVreRGwnCN7fS3g_4eUtzx2yBn4YwDt4CpnlbYFiypGvgjpGD8YacmBKsHO50&amp;t=633049125920000000" type="text/javascript"></script>
+<script src="/gdweb/ScriptResource.axd?d=5mHhbVreRGwnCN7fS3g_4eUtzx2yBn4YwDt4CpnlbYEHJDGgMJxx-mqstufues4xS7TM01tVrkGysrsDiFN61Q2&amp;t=633049125920000000" type="text/javascript"></script>
+    <div>
+      <div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', document.getElementById('form1'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+        <table width="101%" cellspacing="0" id="uxp_hdr">
+          <tbody>
+            <tr>
+              <td background="Images/ToolBarBg.gif" class="uxp_hdrInner"><table class="uxp_hdrInnerTable" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td class="uxp_hdr_pointer" id="uxp_hdr_jewelParent" 
+          onmouseleave="this.className=this.className.replace(' uxp_hdr_jewelSpanHover','')" 
+          onmouseenter="this.className+=' uxp_hdr_jewelSpanHover'"><br />
+                      </td>
+                      <td>
+<link rel="Shortcut Icon" href="Images/JP.ico">
+        
+        <div>
+      <table width=100%>
+      <tr align=left>
+      <td>
+      <div><H1><div id="TOPMun1_Title" class="" style="color: white">金盘馆藏查询系统</div></H1></div>
+      </td>
+
+      <td>
+      <!------导航菜单---------->
+       <table id="uxp_hdr_middleArea" align="right" border="0" cellpadding="2" cellspacing="6">
+    <tbody>
+        <tr>
+            <td id="uxp_hdr_tabsParent" style="width: 5px">
+                <table id="uxp_hdr_tabs" cellspacing="0" class="uxp_hdr_pointer">
+                    <tbody>
+                        <tr>
+                           <span id="TOPMun1_LblMun"><td style="height: 21px"><A href='default.aspx'><span>首页</span></A></td><td style="height: 21px"><A href='default.aspx'><span>书目查询</span></A></td><td style="height: 21px"><A href='MagazineCantoScarch.aspx'><span>期刊篇名</span></A></td><td style="height: 21px"><A href='ReservedList.aspx'><span>预约到馆</span></A></td><td style="height: 21px"><A href='ExpiredList.aspx'><span>超期公告</span></A></td><td style="height: 21px"><A href='NewBooKScarch.aspx'><span>新书通报</span></A></td><td style="height: 21px"><A href='AdvicesScarch.aspx'><span>情报检索</span></A></td><td style="height: 21px"><A href='WriteJGBook.aspx'><span>新书征订</span></A></td><td style="height: 21px"><A href='ReaderLogin.aspx'><span>读者登录</span></A></td><td style="height: 21px"><A href='OnlineStudy.aspx'><span>在线咨询/培训</span></A></td><td style="height: 21px"><A href='ReaderTable.aspx'><span>读者管理</span</a></td></span></tr>
+                    </tbody>
+                </table>
+                
+            </td>
+            <td id="uxp_hdr_searchParent">
+            </td>
+        </tr>
+    </tbody>
+</table>
+      </td>
+      </tr>
+      </table>
+     
+</div>
+
+                      </td>
+                      <td class="uxp_hdr_pointer" 
+  id="uxp_hdr_meParent"></td>
+                    </tr>
+                  </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+        <script src="Images/header.js" defer="defer" 
+type="text/javascript"></script>
+        <table width="100%" height="85" border="0" cellpadding="5" background="Images/Bg.gif">
+          <tr>
+            <td colspan="4">
+			<table class="border_2" height="130" cellspacing="0" cellpadding="0" 
+            width="100%" border="0">
+                <tbody>
+                  <tr>
+                    <td valign="top" background="Images/topBack.gif" class="uxp_hdrInner" style="height: 33px"><table width="100%" border="0" cellspacing="1" cellpadding="1" class="uxp_hdrInnerTable">
+                        <tr>
+                          <td>&nbsp; <img src="Images/gif-0803.gif" width="11" height="12" /><span class="Me STYLE1">我的位置</span><span class="STYLE1">:</span><a class="BL" href="#" target="_top"><span><span id="GetTitle">金盘书目数据查询</span></span></a> <span class="STYLE1"> --&gt;<a href="ReaderTable.aspx" class="BL">读者管理</a>--&gt;查看我的借阅历史</span></td>
+                        </tr>
+                      </table>
+                        <link href="Images/default.css" rel="stylesheet" type="text/css" />
+<link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" />
+<link href="Images/samples.css" rel="stylesheet" type="text/css" />
+<link href="Images/Popover.css" rel="stylesheet" type="text/css" />
+<link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" />
+<link href="Images/hig.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style>
+
+<table width="100%" height="18" border="1" cellpadding="0"  bordercolor="#CCCCCC"  cellspacing="0" class="border_2">
+  <tr>
+    <th background="Images/loginback.gif" scope="row" style="height: 18px"><div align="left">
+        &nbsp;&nbsp;
+        <img src="Images/User.gif" width="22" height="18" />
+        <span id="CheckLogin1_Label1" class="BL" style="display:inline-block;color:#4891BF;font-family:宋体;font-size:9pt;font-weight:normal;width:172px;"><span> 欢迎您: 请选择你的操作</span></span><a id="CheckLogin1_LinkButton1" href="javascript:__doPostBack('CheckLogin1$LinkButton1','')" style="color:#4891BF;font-weight:normal;">【退出登录】</a><a id="CheckLogin1_LinkButton2" href="javascript:__doPostBack('CheckLogin1$LinkButton2','')" style="color:#4891BF;font-weight:normal;">【查看我的书目选单】</a></div></th>
+  </tr>
+</table>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="97" valign="middle"><table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+                      
+                      <tr>
+                        <td><table cellspacing="0" cellpadding="3" rules="all" border="1" id="DataGrid1" style="background-color:White;border-color:#CCCCCC;border-width:1px;border-style:None;width:100%;border-collapse:collapse;">
+	<tr style="color:White;background-color:#006699;font-weight:bold;">
+		<td style="color:White;">题名</td><td style="color:White;">登录号</td><td style="color:White;">条形码</td><td style="color:White;">处理时间</td><td style="color:White;">操作类型</td>
+	</tr><tr style="color:#000066;">
+		<td>LINUX命令行大全</td><td>1360086</td><td>1360086</td><td>2014-7-28 9:29:49</td><td>续借</td>
+	</tr><tr style="color:#000066;">
+		<td>WEB之困:现代WEB应用安全指南</td><td>1418723</td><td>1418723</td><td>2014-6-20 21:52:53</td><td>续借</td>
+	</tr><tr style="color:#000066;">
+		<td>C++ PRIMER PLUS中文版</td><td>1412972</td><td>1412972</td><td>2014-6-20 21:52:48</td><td>续借</td>
+	</tr><tr style="color:#000066;">
+		<td>白帽子讲WEB安全</td><td>1378986</td><td>1378986</td><td>2014-6-20 21:52:44</td><td>续借</td>
+	</tr><tr style="color:#000066;">
+		<td>编程人生:15位软件先驱访谈录</td><td>1387000</td><td>1387000</td><td>2014-6-20 21:52:37</td><td>续借</td>
+	</tr><tr style="color:#000066;">
+		<td>计算机编程导论:PYTHON程序设计</td><td>1426297</td><td>1426297</td><td>2014-6-20 21:09:01</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>LINUX常用命令简明手册</td><td>1424680</td><td>1424680</td><td>2014-6-20 20:55:44</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>LINUX口袋书</td><td>1370812</td><td>1370812</td><td>2014-6-20 20:55:39</td><td>借书</td>
+	</tr>
+</table></td>
+                      </tr>
+                      <tr>
+                        <td align="center" height="41" width="100%">
+                            <table align=Left style="font:'System.String[]';font-size:;text-decoration:;" title="【分页控件】" cellspacing="1px" cellpadding="0px" ID="Table_MyPaper1" style="" height="28px" width="300px" class="" border="0px"  bgcolor="Transparent" bordercolor="White"><tr>	
+<td nowrap="true"  align="center" bordercolor="" style = ''  bgcolor=""></td>	
+<td nowrap="true"  align="center" bordercolor=""   bgcolor="">&nbsp;<a href="?PageNo=1">第一页</a>&nbsp;上一页&nbsp;</td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor="Red" ><a href='?PageNo=1' class=''><b><font color="1">1</font></b></a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=2' class=''>2</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=3' class=''>3</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=4' class=''>4</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=5' class=''>5</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=6' class=''>6</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=7' class=''>7</a></td>	
+<td  align="center" nowrap="true" bordercolor=""  bgcolor="">&nbsp;<a class="" href="?PageNo=2">下一页</a>&nbsp;<a class="" href="?PageNo=7">最后一页</a>&nbsp;</td>	
+<td  align="center" nowrap="true" bordercolor=""  bgcolor=""><input onkeydown="MyPaper1_SubmitKeyClick('MyPaper1_goto');" type="text" onkeyup="value=value.replace(/[^\d]/g,'') "  onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"  name="MyPaper1_PageNo" value="1" size="4"/><input id="MyPaper1_goto" onclick="MyPaper1_GotoPage()" type="button" value="转到"  style="BORDER-RIGHT: #70b1cf 1px solid; BACKGROUND-POSITION: -15px -196px; BORDER-TOP: #70b1cf 1px solid; BORDER-LEFT: #70b1cf 1px solid; LINE-HEIGHT: 20px; BORDER-BOTTOM: #70b1cf 1px solid"/></td>	
+<script language =javascript>
+function MyPaper1_GotoPage()
+{
+   var b = document.getElementById("MyPaper1_PageNo").value;
+   if(b>7){
+      alert("无效页数！");
+      document.getElementById("MyPaper1_PageNo").value="";
+      document.getElementById("MyPaper1_PageNo").focus();
+   }else{
+      window.location.replace("?PageNo="+b+"");
+   }
+}
+function MyPaper1_SubmitKeyClick(button)
+{ 
+   if (event.keyCode == 13) 
+   {
+       event.keyCode=9;
+       event.returnValue = false;
+       document.all[button].click();
+   }
+}
+</script></tr></table>	
+
+                            &nbsp;</td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                </tbody>
+            </table></td>
+          </tr>
+        </table>
+        <table id="uxp_ftr_control" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td id="uxp_ftr_left"><ul>
+                  <li><a id="uxp_ftr_link_trademark" 
+        href="#" target="_top">© 2007 
+                    北京金盘软件技术有限公司</a> </li>
+                <li><a id="uxp_ftr_link_privacy" 
+        href="#" target="_top">隐私声明</a> </li>
+                <li class="uxp_ftr_item_last"><a id="uxp_ftr_link_legal" 
+        href="#" target="_top">使用条款</a> </li>
+              </ul></td>
+              <td id="uxp_ftr_right"><table id="uxp_ftr_right_nest" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td><ul>
+                          <li><a id="uxp_ftr_link_helpcentral" 
+              href="#" target="_top">帮助中心</a> </li>
+                        <li><a id="uxp_ftr_link_account" 
+              href="#" target="_top">帐户</a> </li>
+                        <li class="uxp_ftr_item_last"><a id="uxp_ftr_link_feedback" 
+              href="#" 
+              target="_top">反馈</a> </li>
+                      </ul></td>
+                    </tr>
+                  </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAwL+8P7aBAL7hryJDwLgnZ70BDK164IDS4IQOs41bxFN95D5emsC" />
+</div>
+
+<script type="text/javascript">
+<!--
+Sys.Application.initialize();
+// -->
+</script>
+</form>
+</body>
+</html>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+	查看我的借阅历史
+</title>
+    <style type="text/css">
+<!--
+.STYLE1 {color: #FFFFFF}
+.css {FONT-SIZE: 14px; LINE-HEIGHT: 18px
+}
+-->
+    </style>
+    <link href="Images/default.css" rel="stylesheet" type="text/css" /><link href="Images/hig.css" rel="stylesheet" type="text/css" /><link href="English/Images/Popover.css" rel="stylesheet" type="text/css" /><link href="English/Images/samples.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+<!--
+.style2 {COLOR: #0000ff }
+-->
+    </style>
+    <link href="Images/default.css" rel="stylesheet" type="text/css" /><link href="Images/samples.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" /><link href="Images/hig.css" rel="stylesheet" type="text/css" /></head>
+<body>
+    <form name="form1" method="post" action="HisdoryList.aspx?PageNo=2" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+<!--
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+
+
+<script src="/gdweb/WebResource.axd?d=yw_OucaS4d8Pc_D3deN-gg2&amp;t=635019793903086291" type="text/javascript"></script>
+
+
+<script src="/gdweb/ScriptResource.axd?d=5mHhbVreRGwnCN7fS3g_4eUtzx2yBn4YwDt4CpnlbYFiypGvgjpGD8YacmBKsHO50&amp;t=633049125920000000" type="text/javascript"></script>
+<script src="/gdweb/ScriptResource.axd?d=5mHhbVreRGwnCN7fS3g_4eUtzx2yBn4YwDt4CpnlbYEHJDGgMJxx-mqstufues4xS7TM01tVrkGysrsDiFN61Q2&amp;t=633049125920000000" type="text/javascript"></script>
+    <div>
+      <div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', document.getElementById('form1'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+        <table width="101%" cellspacing="0" id="uxp_hdr">
+          <tbody>
+            <tr>
+              <td background="Images/ToolBarBg.gif" class="uxp_hdrInner"><table class="uxp_hdrInnerTable" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td class="uxp_hdr_pointer" id="uxp_hdr_jewelParent" 
+          onmouseleave="this.className=this.className.replace(' uxp_hdr_jewelSpanHover','')" 
+          onmouseenter="this.className+=' uxp_hdr_jewelSpanHover'"><br />
+                      </td>
+                      <td>
+<link rel="Shortcut Icon" href="Images/JP.ico">
+        
+        <div>
+      <table width=100%>
+      <tr align=left>
+      <td>
+      <div><H1><div id="TOPMun1_Title" class="" style="color: white">金盘馆藏查询系统</div></H1></div>
+      </td>
+
+      <td>
+      <!------导航菜单---------->
+       <table id="uxp_hdr_middleArea" align="right" border="0" cellpadding="2" cellspacing="6">
+    <tbody>
+        <tr>
+            <td id="uxp_hdr_tabsParent" style="width: 5px">
+                <table id="uxp_hdr_tabs" cellspacing="0" class="uxp_hdr_pointer">
+                    <tbody>
+                        <tr>
+                           <span id="TOPMun1_LblMun"><td style="height: 21px"><A href='default.aspx'><span>首页</span></A></td><td style="height: 21px"><A href='default.aspx'><span>书目查询</span></A></td><td style="height: 21px"><A href='MagazineCantoScarch.aspx'><span>期刊篇名</span></A></td><td style="height: 21px"><A href='ReservedList.aspx'><span>预约到馆</span></A></td><td style="height: 21px"><A href='ExpiredList.aspx'><span>超期公告</span></A></td><td style="height: 21px"><A href='NewBooKScarch.aspx'><span>新书通报</span></A></td><td style="height: 21px"><A href='AdvicesScarch.aspx'><span>情报检索</span></A></td><td style="height: 21px"><A href='WriteJGBook.aspx'><span>新书征订</span></A></td><td style="height: 21px"><A href='ReaderLogin.aspx'><span>读者登录</span></A></td><td style="height: 21px"><A href='OnlineStudy.aspx'><span>在线咨询/培训</span></A></td><td style="height: 21px"><A href='ReaderTable.aspx'><span>读者管理</span</a></td></span></tr>
+                    </tbody>
+                </table>
+                
+            </td>
+            <td id="uxp_hdr_searchParent">
+            </td>
+        </tr>
+    </tbody>
+</table>
+      </td>
+      </tr>
+      </table>
+     
+</div>
+
+                      </td>
+                      <td class="uxp_hdr_pointer" 
+  id="uxp_hdr_meParent"></td>
+                    </tr>
+                  </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+        <script src="Images/header.js" defer="defer" 
+type="text/javascript"></script>
+        <table width="100%" height="85" border="0" cellpadding="5" background="Images/Bg.gif">
+          <tr>
+            <td colspan="4">
+			<table class="border_2" height="130" cellspacing="0" cellpadding="0" 
+            width="100%" border="0">
+                <tbody>
+                  <tr>
+                    <td valign="top" background="Images/topBack.gif" class="uxp_hdrInner" style="height: 33px"><table width="100%" border="0" cellspacing="1" cellpadding="1" class="uxp_hdrInnerTable">
+                        <tr>
+                          <td>&nbsp; <img src="Images/gif-0803.gif" width="11" height="12" /><span class="Me STYLE1">我的位置</span><span class="STYLE1">:</span><a class="BL" href="#" target="_top"><span><span id="GetTitle">金盘书目数据查询</span></span></a> <span class="STYLE1"> --&gt;<a href="ReaderTable.aspx" class="BL">读者管理</a>--&gt;查看我的借阅历史</span></td>
+                        </tr>
+                      </table>
+                        <link href="Images/default.css" rel="stylesheet" type="text/css" />
+<link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" />
+<link href="Images/samples.css" rel="stylesheet" type="text/css" />
+<link href="Images/Popover.css" rel="stylesheet" type="text/css" />
+<link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" />
+<link href="Images/hig.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style>
+
+<table width="100%" height="18" border="1" cellpadding="0"  bordercolor="#CCCCCC"  cellspacing="0" class="border_2">
+  <tr>
+    <th background="Images/loginback.gif" scope="row" style="height: 18px"><div align="left">
+        &nbsp;&nbsp;
+        <img src="Images/User.gif" width="22" height="18" />
+        <span id="CheckLogin1_Label1" class="BL" style="display:inline-block;color:#4891BF;font-family:宋体;font-size:9pt;font-weight:normal;width:172px;"><span> 欢迎您: 请选择你的操作</span></span><a id="CheckLogin1_LinkButton1" href="javascript:__doPostBack('CheckLogin1$LinkButton1','')" style="color:#4891BF;font-weight:normal;">【退出登录】</a><a id="CheckLogin1_LinkButton2" href="javascript:__doPostBack('CheckLogin1$LinkButton2','')" style="color:#4891BF;font-weight:normal;">【查看我的书目选单】</a></div></th>
+  </tr>
+</table>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="97" valign="middle"><table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+                      
+                      <tr>
+                        <td><table cellspacing="0" cellpadding="3" rules="all" border="1" id="DataGrid1" style="background-color:White;border-color:#CCCCCC;border-width:1px;border-style:None;width:100%;border-collapse:collapse;">
+	<tr style="color:White;background-color:#006699;font-weight:bold;">
+		<td style="color:White;">题名</td><td style="color:White;">登录号</td><td style="color:White;">条形码</td><td style="color:White;">处理时间</td><td style="color:White;">操作类型</td>
+	</tr><tr style="color:#000066;">
+		<td>LINUX命令、编辑器与SHELL编程(第3版)</td><td>1419602</td><td>1419602</td><td>2014-6-20 20:55:32</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>LINUX命令行大全</td><td>1360086</td><td>1360086</td><td>2014-6-20 20:55:26</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>JAVASCRIPT精粹:101 ESSENTIAL TIPS, TRICKS & HACKS</td><td>1406914</td><td>1406914</td><td>2014-6-20 20:30:14</td><td>还书</td>
+	</tr><tr style="color:#000066;">
+		<td>CSS3实战:开发与设计</td><td>1413435</td><td>1413435</td><td>2014-6-20 20:30:12</td><td>还书</td>
+	</tr><tr style="color:#000066;">
+		<td>WEB之困:现代WEB应用安全指南</td><td>1418723</td><td>1418723</td><td>2014-4-24 18:36:15</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>C++ PRIMER PLUS中文版</td><td>1412972</td><td>1412972</td><td>2014-4-24 10:19:05</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>白帽子讲WEB安全</td><td>1378986</td><td>1378986</td><td>2014-4-24 10:19:02</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>JAVASCRIPT精粹:101 ESSENTIAL TIPS, TRICKS & HACKS</td><td>1406914</td><td>1406914</td><td>2014-4-24 10:18:58</td><td>借书</td>
+	</tr>
+</table></td>
+                      </tr>
+                      <tr>
+                        <td align="center" height="41" width="100%">
+                            <table align=Left style="font:'System.String[]';font-size:;text-decoration:;" title="【分页控件】" cellspacing="1px" cellpadding="0px" ID="Table_MyPaper1" style="" height="28px" width="300px" class="" border="0px"  bgcolor="Transparent" bordercolor="White"><tr>	
+<td nowrap="true"  align="center" bordercolor="" style = ''  bgcolor=""></td>	
+<td nowrap="true"  align="center" bordercolor=""   bgcolor="">&nbsp;<a href="?PageNo=1">第一页</a>&nbsp;<a class="" href="?PageNo=1">上一页</a>&nbsp;</td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=1' class=''>1</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor="Red" ><a href='?PageNo=2' class=''><b><font color="2">2</font></b></a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=3' class=''>3</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=4' class=''>4</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=5' class=''>5</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=6' class=''>6</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=7' class=''>7</a></td>	
+<td  align="center" nowrap="true" bordercolor=""  bgcolor="">&nbsp;<a class="" href="?PageNo=3">下一页</a>&nbsp;<a class="" href="?PageNo=7">最后一页</a>&nbsp;</td>	
+<td  align="center" nowrap="true" bordercolor=""  bgcolor=""><input onkeydown="MyPaper1_SubmitKeyClick('MyPaper1_goto');" type="text" onkeyup="value=value.replace(/[^\d]/g,'') "  onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"  name="MyPaper1_PageNo" value="2" size="4"/><input id="MyPaper1_goto" onclick="MyPaper1_GotoPage()" type="button" value="转到"  style="BORDER-RIGHT: #70b1cf 1px solid; BACKGROUND-POSITION: -15px -196px; BORDER-TOP: #70b1cf 1px solid; BORDER-LEFT: #70b1cf 1px solid; LINE-HEIGHT: 20px; BORDER-BOTTOM: #70b1cf 1px solid"/></td>	
+<script language =javascript>
+function MyPaper1_GotoPage()
+{
+   var b = document.getElementById("MyPaper1_PageNo").value;
+   if(b>7){
+      alert("无效页数！");
+      document.getElementById("MyPaper1_PageNo").value="";
+      document.getElementById("MyPaper1_PageNo").focus();
+   }else{
+      window.location.replace("?PageNo="+b+"");
+   }
+}
+function MyPaper1_SubmitKeyClick(button)
+{ 
+   if (event.keyCode == 13) 
+   {
+       event.keyCode=9;
+       event.returnValue = false;
+       document.all[button].click();
+   }
+}
+</script></tr></table>	
+
+                            &nbsp;</td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                </tbody>
+            </table></td>
+          </tr>
+        </table>
+        <table id="uxp_ftr_control" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td id="uxp_ftr_left"><ul>
+                  <li><a id="uxp_ftr_link_trademark" 
+        href="#" target="_top">© 2007 
+                    北京金盘软件技术有限公司</a> </li>
+                <li><a id="uxp_ftr_link_privacy" 
+        href="#" target="_top">隐私声明</a> </li>
+                <li class="uxp_ftr_item_last"><a id="uxp_ftr_link_legal" 
+        href="#" target="_top">使用条款</a> </li>
+              </ul></td>
+              <td id="uxp_ftr_right"><table id="uxp_ftr_right_nest" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td><ul>
+                          <li><a id="uxp_ftr_link_helpcentral" 
+              href="#" target="_top">帮助中心</a> </li>
+                        <li><a id="uxp_ftr_link_account" 
+              href="#" target="_top">帐户</a> </li>
+                        <li class="uxp_ftr_item_last"><a id="uxp_ftr_link_feedback" 
+              href="#" 
+              target="_top">反馈</a> </li>
+                      </ul></td>
+                    </tr>
+                  </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAwLa2duzAQL7hryJDwLgnZ70BA6+q94kElKBKCR0xCNJx1B9RCAv" />
+</div>
+
+<script type="text/javascript">
+<!--
+Sys.Application.initialize();
+// -->
+</script>
+</form>
+</body>
+</html>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+	查看我的借阅历史
+</title>
+    <style type="text/css">
+<!--
+.STYLE1 {color: #FFFFFF}
+.css {FONT-SIZE: 14px; LINE-HEIGHT: 18px
+}
+-->
+    </style>
+    <link href="Images/default.css" rel="stylesheet" type="text/css" /><link href="Images/hig.css" rel="stylesheet" type="text/css" /><link href="English/Images/Popover.css" rel="stylesheet" type="text/css" /><link href="English/Images/samples.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+<!--
+.style2 {COLOR: #0000ff }
+-->
+    </style>
+    <link href="Images/default.css" rel="stylesheet" type="text/css" /><link href="Images/samples.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" /><link href="Images/hig.css" rel="stylesheet" type="text/css" /></head>
+<body>
+    <form name="form1" method="post" action="HisdoryList.aspx?PageNo=3" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+<!--
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+
+
+<script src="/gdweb/WebResource.axd?d=yw_OucaS4d8Pc_D3deN-gg2&amp;t=635019793903086291" type="text/javascript"></script>
+
+
+<script src="/gdweb/ScriptResource.axd?d=5mHhbVreRGwnCN7fS3g_4eUtzx2yBn4YwDt4CpnlbYFiypGvgjpGD8YacmBKsHO50&amp;t=633049125920000000" type="text/javascript"></script>
+<script src="/gdweb/ScriptResource.axd?d=5mHhbVreRGwnCN7fS3g_4eUtzx2yBn4YwDt4CpnlbYEHJDGgMJxx-mqstufues4xS7TM01tVrkGysrsDiFN61Q2&amp;t=633049125920000000" type="text/javascript"></script>
+    <div>
+      <div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', document.getElementById('form1'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+        <table width="101%" cellspacing="0" id="uxp_hdr">
+          <tbody>
+            <tr>
+              <td background="Images/ToolBarBg.gif" class="uxp_hdrInner"><table class="uxp_hdrInnerTable" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td class="uxp_hdr_pointer" id="uxp_hdr_jewelParent" 
+          onmouseleave="this.className=this.className.replace(' uxp_hdr_jewelSpanHover','')" 
+          onmouseenter="this.className+=' uxp_hdr_jewelSpanHover'"><br />
+                      </td>
+                      <td>
+<link rel="Shortcut Icon" href="Images/JP.ico">
+        
+        <div>
+      <table width=100%>
+      <tr align=left>
+      <td>
+      <div><H1><div id="TOPMun1_Title" class="" style="color: white">金盘馆藏查询系统</div></H1></div>
+      </td>
+
+      <td>
+      <!------导航菜单---------->
+       <table id="uxp_hdr_middleArea" align="right" border="0" cellpadding="2" cellspacing="6">
+    <tbody>
+        <tr>
+            <td id="uxp_hdr_tabsParent" style="width: 5px">
+                <table id="uxp_hdr_tabs" cellspacing="0" class="uxp_hdr_pointer">
+                    <tbody>
+                        <tr>
+                           <span id="TOPMun1_LblMun"><td style="height: 21px"><A href='default.aspx'><span>首页</span></A></td><td style="height: 21px"><A href='default.aspx'><span>书目查询</span></A></td><td style="height: 21px"><A href='MagazineCantoScarch.aspx'><span>期刊篇名</span></A></td><td style="height: 21px"><A href='ReservedList.aspx'><span>预约到馆</span></A></td><td style="height: 21px"><A href='ExpiredList.aspx'><span>超期公告</span></A></td><td style="height: 21px"><A href='NewBooKScarch.aspx'><span>新书通报</span></A></td><td style="height: 21px"><A href='AdvicesScarch.aspx'><span>情报检索</span></A></td><td style="height: 21px"><A href='WriteJGBook.aspx'><span>新书征订</span></A></td><td style="height: 21px"><A href='ReaderLogin.aspx'><span>读者登录</span></A></td><td style="height: 21px"><A href='OnlineStudy.aspx'><span>在线咨询/培训</span></A></td><td style="height: 21px"><A href='ReaderTable.aspx'><span>读者管理</span</a></td></span></tr>
+                    </tbody>
+                </table>
+                
+            </td>
+            <td id="uxp_hdr_searchParent">
+            </td>
+        </tr>
+    </tbody>
+</table>
+      </td>
+      </tr>
+      </table>
+     
+</div>
+
+                      </td>
+                      <td class="uxp_hdr_pointer" 
+  id="uxp_hdr_meParent"></td>
+                    </tr>
+                  </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+        <script src="Images/header.js" defer="defer" 
+type="text/javascript"></script>
+        <table width="100%" height="85" border="0" cellpadding="5" background="Images/Bg.gif">
+          <tr>
+            <td colspan="4">
+			<table class="border_2" height="130" cellspacing="0" cellpadding="0" 
+            width="100%" border="0">
+                <tbody>
+                  <tr>
+                    <td valign="top" background="Images/topBack.gif" class="uxp_hdrInner" style="height: 33px"><table width="100%" border="0" cellspacing="1" cellpadding="1" class="uxp_hdrInnerTable">
+                        <tr>
+                          <td>&nbsp; <img src="Images/gif-0803.gif" width="11" height="12" /><span class="Me STYLE1">我的位置</span><span class="STYLE1">:</span><a class="BL" href="#" target="_top"><span><span id="GetTitle">金盘书目数据查询</span></span></a> <span class="STYLE1"> --&gt;<a href="ReaderTable.aspx" class="BL">读者管理</a>--&gt;查看我的借阅历史</span></td>
+                        </tr>
+                      </table>
+                        <link href="Images/default.css" rel="stylesheet" type="text/css" />
+<link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" />
+<link href="Images/samples.css" rel="stylesheet" type="text/css" />
+<link href="Images/Popover.css" rel="stylesheet" type="text/css" />
+<link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" />
+<link href="Images/hig.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style>
+
+<table width="100%" height="18" border="1" cellpadding="0"  bordercolor="#CCCCCC"  cellspacing="0" class="border_2">
+  <tr>
+    <th background="Images/loginback.gif" scope="row" style="height: 18px"><div align="left">
+        &nbsp;&nbsp;
+        <img src="Images/User.gif" width="22" height="18" />
+        <span id="CheckLogin1_Label1" class="BL" style="display:inline-block;color:#4891BF;font-family:宋体;font-size:9pt;font-weight:normal;width:172px;"><span> 欢迎您: 请选择你的操作</span></span><a id="CheckLogin1_LinkButton1" href="javascript:__doPostBack('CheckLogin1$LinkButton1','')" style="color:#4891BF;font-weight:normal;">【退出登录】</a><a id="CheckLogin1_LinkButton2" href="javascript:__doPostBack('CheckLogin1$LinkButton2','')" style="color:#4891BF;font-weight:normal;">【查看我的书目选单】</a></div></th>
+  </tr>
+</table>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="97" valign="middle"><table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+                      
+                      <tr>
+                        <td><table cellspacing="0" cellpadding="3" rules="all" border="1" id="DataGrid1" style="background-color:White;border-color:#CCCCCC;border-width:1px;border-style:None;width:100%;border-collapse:collapse;">
+	<tr style="color:White;background-color:#006699;font-weight:bold;">
+		<td style="color:White;">题名</td><td style="color:White;">登录号</td><td style="color:White;">条形码</td><td style="color:White;">处理时间</td><td style="color:White;">操作类型</td>
+	</tr><tr style="color:#000066;">
+		<td>CSS3实战:开发与设计</td><td>1413435</td><td>1413435</td><td>2014-4-24 10:18:56</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>编程人生:15位软件先驱访谈录</td><td>1387000</td><td>1387000</td><td>2014-4-24 10:18:46</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>PHP程序开发参考手册</td><td>1423240</td><td>1423240</td><td>2014-4-24 9:45:37</td><td>还书</td>
+	</tr><tr style="color:#000066;">
+		<td>C语言与程序设计</td><td>1412838</td><td>1412838</td><td>2014-4-24 9:45:31</td><td>还书</td>
+	</tr><tr style="color:#000066;">
+		<td>C/C++常用算法手册</td><td>1406446</td><td>1406446</td><td>2014-4-24 9:45:25</td><td>还书</td>
+	</tr><tr style="color:#000066;">
+		<td>PHP+MYSQL开发技术详解</td><td>1367026</td><td>1367026</td><td>2014-4-24 9:45:20</td><td>还书</td>
+	</tr><tr style="color:#000066;">
+		<td>PHP、MYSQL和APACHE入门经典</td><td>1423097</td><td>1423097</td><td>2014-4-24 9:45:15</td><td>还书</td>
+	</tr><tr style="color:#000066;">
+		<td>网页DIV+CSS布局和动画美化全程实例</td><td>1395619</td><td>1395619</td><td>2014-4-24 9:45:03</td><td>还书</td>
+	</tr>
+</table></td>
+                      </tr>
+                      <tr>
+                        <td align="center" height="41" width="100%">
+                            <table align=Left style="font:'System.String[]';font-size:;text-decoration:;" title="【分页控件】" cellspacing="1px" cellpadding="0px" ID="Table_MyPaper1" style="" height="28px" width="300px" class="" border="0px"  bgcolor="Transparent" bordercolor="White"><tr>	
+<td nowrap="true"  align="center" bordercolor="" style = ''  bgcolor=""></td>	
+<td nowrap="true"  align="center" bordercolor=""   bgcolor="">&nbsp;<a href="?PageNo=1">第一页</a>&nbsp;<a class="" href="?PageNo=2">上一页</a>&nbsp;</td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=1' class=''>1</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=2' class=''>2</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor="Red" ><a href='?PageNo=3' class=''><b><font color="3">3</font></b></a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=4' class=''>4</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=5' class=''>5</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=6' class=''>6</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=7' class=''>7</a></td>	
+<td  align="center" nowrap="true" bordercolor=""  bgcolor="">&nbsp;<a class="" href="?PageNo=4">下一页</a>&nbsp;<a class="" href="?PageNo=7">最后一页</a>&nbsp;</td>	
+<td  align="center" nowrap="true" bordercolor=""  bgcolor=""><input onkeydown="MyPaper1_SubmitKeyClick('MyPaper1_goto');" type="text" onkeyup="value=value.replace(/[^\d]/g,'') "  onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"  name="MyPaper1_PageNo" value="3" size="4"/><input id="MyPaper1_goto" onclick="MyPaper1_GotoPage()" type="button" value="转到"  style="BORDER-RIGHT: #70b1cf 1px solid; BACKGROUND-POSITION: -15px -196px; BORDER-TOP: #70b1cf 1px solid; BORDER-LEFT: #70b1cf 1px solid; LINE-HEIGHT: 20px; BORDER-BOTTOM: #70b1cf 1px solid"/></td>	
+<script language =javascript>
+function MyPaper1_GotoPage()
+{
+   var b = document.getElementById("MyPaper1_PageNo").value;
+   if(b>7){
+      alert("无效页数！");
+      document.getElementById("MyPaper1_PageNo").value="";
+      document.getElementById("MyPaper1_PageNo").focus();
+   }else{
+      window.location.replace("?PageNo="+b+"");
+   }
+}
+function MyPaper1_SubmitKeyClick(button)
+{ 
+   if (event.keyCode == 13) 
+   {
+       event.keyCode=9;
+       event.returnValue = false;
+       document.all[button].click();
+   }
+}
+</script></tr></table>	
+
+                            &nbsp;</td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                </tbody>
+            </table></td>
+          </tr>
+        </table>
+        <table id="uxp_ftr_control" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td id="uxp_ftr_left"><ul>
+                  <li><a id="uxp_ftr_link_trademark" 
+        href="#" target="_top">© 2007 
+                    北京金盘软件技术有限公司</a> </li>
+                <li><a id="uxp_ftr_link_privacy" 
+        href="#" target="_top">隐私声明</a> </li>
+                <li class="uxp_ftr_item_last"><a id="uxp_ftr_link_legal" 
+        href="#" target="_top">使用条款</a> </li>
+              </ul></td>
+              <td id="uxp_ftr_right"><table id="uxp_ftr_right_nest" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td><ul>
+                          <li><a id="uxp_ftr_link_helpcentral" 
+              href="#" target="_top">帮助中心</a> </li>
+                        <li><a id="uxp_ftr_link_account" 
+              href="#" target="_top">帐户</a> </li>
+                        <li class="uxp_ftr_item_last"><a id="uxp_ftr_link_feedback" 
+              href="#" 
+              target="_top">反馈</a> </li>
+                      </ul></td>
+                    </tr>
+                  </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAwKeqMPqCwL7hryJDwLgnZ70BAJrseH1Wl0Nk75znbkyOTpPuUH0" />
+</div>
+
+<script type="text/javascript">
+<!--
+Sys.Application.initialize();
+// -->
+</script>
+</form>
+</body>
+</html>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+	查看我的借阅历史
+</title>
+    <style type="text/css">
+<!--
+.STYLE1 {color: #FFFFFF}
+.css {FONT-SIZE: 14px; LINE-HEIGHT: 18px
+}
+-->
+    </style>
+    <link href="Images/default.css" rel="stylesheet" type="text/css" /><link href="Images/hig.css" rel="stylesheet" type="text/css" /><link href="English/Images/Popover.css" rel="stylesheet" type="text/css" /><link href="English/Images/samples.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+<!--
+.style2 {COLOR: #0000ff }
+-->
+    </style>
+    <link href="Images/default.css" rel="stylesheet" type="text/css" /><link href="Images/samples.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" /><link href="Images/hig.css" rel="stylesheet" type="text/css" /></head>
+<body>
+    <form name="form1" method="post" action="HisdoryList.aspx?PageNo=4" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+<!--
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+
+
+<script src="/gdweb/WebResource.axd?d=yw_OucaS4d8Pc_D3deN-gg2&amp;t=635019793903086291" type="text/javascript"></script>
+
+
+<script src="/gdweb/ScriptResource.axd?d=5mHhbVreRGwnCN7fS3g_4eUtzx2yBn4YwDt4CpnlbYFiypGvgjpGD8YacmBKsHO50&amp;t=633049125920000000" type="text/javascript"></script>
+<script src="/gdweb/ScriptResource.axd?d=5mHhbVreRGwnCN7fS3g_4eUtzx2yBn4YwDt4CpnlbYEHJDGgMJxx-mqstufues4xS7TM01tVrkGysrsDiFN61Q2&amp;t=633049125920000000" type="text/javascript"></script>
+    <div>
+      <div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', document.getElementById('form1'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+        <table width="101%" cellspacing="0" id="uxp_hdr">
+          <tbody>
+            <tr>
+              <td background="Images/ToolBarBg.gif" class="uxp_hdrInner"><table class="uxp_hdrInnerTable" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td class="uxp_hdr_pointer" id="uxp_hdr_jewelParent" 
+          onmouseleave="this.className=this.className.replace(' uxp_hdr_jewelSpanHover','')" 
+          onmouseenter="this.className+=' uxp_hdr_jewelSpanHover'"><br />
+                      </td>
+                      <td>
+<link rel="Shortcut Icon" href="Images/JP.ico">
+        
+        <div>
+      <table width=100%>
+      <tr align=left>
+      <td>
+      <div><H1><div id="TOPMun1_Title" class="" style="color: white">金盘馆藏查询系统</div></H1></div>
+      </td>
+
+      <td>
+      <!------导航菜单---------->
+       <table id="uxp_hdr_middleArea" align="right" border="0" cellpadding="2" cellspacing="6">
+    <tbody>
+        <tr>
+            <td id="uxp_hdr_tabsParent" style="width: 5px">
+                <table id="uxp_hdr_tabs" cellspacing="0" class="uxp_hdr_pointer">
+                    <tbody>
+                        <tr>
+                           <span id="TOPMun1_LblMun"><td style="height: 21px"><A href='default.aspx'><span>首页</span></A></td><td style="height: 21px"><A href='default.aspx'><span>书目查询</span></A></td><td style="height: 21px"><A href='MagazineCantoScarch.aspx'><span>期刊篇名</span></A></td><td style="height: 21px"><A href='ReservedList.aspx'><span>预约到馆</span></A></td><td style="height: 21px"><A href='ExpiredList.aspx'><span>超期公告</span></A></td><td style="height: 21px"><A href='NewBooKScarch.aspx'><span>新书通报</span></A></td><td style="height: 21px"><A href='AdvicesScarch.aspx'><span>情报检索</span></A></td><td style="height: 21px"><A href='WriteJGBook.aspx'><span>新书征订</span></A></td><td style="height: 21px"><A href='ReaderLogin.aspx'><span>读者登录</span></A></td><td style="height: 21px"><A href='OnlineStudy.aspx'><span>在线咨询/培训</span></A></td><td style="height: 21px"><A href='ReaderTable.aspx'><span>读者管理</span</a></td></span></tr>
+                    </tbody>
+                </table>
+                
+            </td>
+            <td id="uxp_hdr_searchParent">
+            </td>
+        </tr>
+    </tbody>
+</table>
+      </td>
+      </tr>
+      </table>
+     
+</div>
+
+                      </td>
+                      <td class="uxp_hdr_pointer" 
+  id="uxp_hdr_meParent"></td>
+                    </tr>
+                  </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+        <script src="Images/header.js" defer="defer" 
+type="text/javascript"></script>
+        <table width="100%" height="85" border="0" cellpadding="5" background="Images/Bg.gif">
+          <tr>
+            <td colspan="4">
+			<table class="border_2" height="130" cellspacing="0" cellpadding="0" 
+            width="100%" border="0">
+                <tbody>
+                  <tr>
+                    <td valign="top" background="Images/topBack.gif" class="uxp_hdrInner" style="height: 33px"><table width="100%" border="0" cellspacing="1" cellpadding="1" class="uxp_hdrInnerTable">
+                        <tr>
+                          <td>&nbsp; <img src="Images/gif-0803.gif" width="11" height="12" /><span class="Me STYLE1">我的位置</span><span class="STYLE1">:</span><a class="BL" href="#" target="_top"><span><span id="GetTitle">金盘书目数据查询</span></span></a> <span class="STYLE1"> --&gt;<a href="ReaderTable.aspx" class="BL">读者管理</a>--&gt;查看我的借阅历史</span></td>
+                        </tr>
+                      </table>
+                        <link href="Images/default.css" rel="stylesheet" type="text/css" />
+<link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" />
+<link href="Images/samples.css" rel="stylesheet" type="text/css" />
+<link href="Images/Popover.css" rel="stylesheet" type="text/css" />
+<link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" />
+<link href="Images/hig.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style>
+
+<table width="100%" height="18" border="1" cellpadding="0"  bordercolor="#CCCCCC"  cellspacing="0" class="border_2">
+  <tr>
+    <th background="Images/loginback.gif" scope="row" style="height: 18px"><div align="left">
+        &nbsp;&nbsp;
+        <img src="Images/User.gif" width="22" height="18" />
+        <span id="CheckLogin1_Label1" class="BL" style="display:inline-block;color:#4891BF;font-family:宋体;font-size:9pt;font-weight:normal;width:172px;"><span> 欢迎您: 请选择你的操作</span></span><a id="CheckLogin1_LinkButton1" href="javascript:__doPostBack('CheckLogin1$LinkButton1','')" style="color:#4891BF;font-weight:normal;">【退出登录】</a><a id="CheckLogin1_LinkButton2" href="javascript:__doPostBack('CheckLogin1$LinkButton2','')" style="color:#4891BF;font-weight:normal;">【查看我的书目选单】</a></div></th>
+  </tr>
+</table>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="97" valign="middle"><table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+                      
+                      <tr>
+                        <td><table cellspacing="0" cellpadding="3" rules="all" border="1" id="DataGrid1" style="background-color:White;border-color:#CCCCCC;border-width:1px;border-style:None;width:100%;border-collapse:collapse;">
+	<tr style="color:White;background-color:#006699;font-weight:bold;">
+		<td style="color:White;">题名</td><td style="color:White;">登录号</td><td style="color:White;">条形码</td><td style="color:White;">处理时间</td><td style="color:White;">操作类型</td>
+	</tr><tr style="color:#000066;">
+		<td>BOOTSTRAP实战</td><td>1411076</td><td>1411076</td><td>2014-4-24 9:44:58</td><td>还书</td>
+	</tr><tr style="color:#000066;">
+		<td>网页DIV+CSS布局和动画美化全程实例</td><td>1395619</td><td>1395619</td><td>2014-4-1 20:44:04</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>BOOTSTRAP实战</td><td>1411076</td><td>1411076</td><td>2014-4-1 20:43:59</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>C语言与程序设计</td><td>1412838</td><td>1412838</td><td>2014-3-5 22:03:04</td><td>续借</td>
+	</tr><tr style="color:#000066;">
+		<td>PHP程序开发参考手册</td><td>1423240</td><td>1423240</td><td>2014-3-5 22:03:01</td><td>续借</td>
+	</tr><tr style="color:#000066;">
+		<td>PHP+MYSQL开发技术详解</td><td>1367026</td><td>1367026</td><td>2014-3-5 22:02:58</td><td>续借</td>
+	</tr><tr style="color:#000066;">
+		<td>PHP、MYSQL和APACHE入门经典</td><td>1423097</td><td>1423097</td><td>2014-3-5 22:02:54</td><td>续借</td>
+	</tr><tr style="color:#000066;">
+		<td>C/C++常用算法手册</td><td>1406446</td><td>1406446</td><td>2014-3-5 22:02:50</td><td>续借</td>
+	</tr>
+</table></td>
+                      </tr>
+                      <tr>
+                        <td align="center" height="41" width="100%">
+                            <table align=Left style="font:'System.String[]';font-size:;text-decoration:;" title="【分页控件】" cellspacing="1px" cellpadding="0px" ID="Table_MyPaper1" style="" height="28px" width="300px" class="" border="0px"  bgcolor="Transparent" bordercolor="White"><tr>	
+<td nowrap="true"  align="center" bordercolor="" style = ''  bgcolor=""></td>	
+<td nowrap="true"  align="center" bordercolor=""   bgcolor="">&nbsp;<a href="?PageNo=1">第一页</a>&nbsp;<a class="" href="?PageNo=3">上一页</a>&nbsp;</td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=1' class=''>1</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=2' class=''>2</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=3' class=''>3</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor="Red" ><a href='?PageNo=4' class=''><b><font color="4">4</font></b></a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=5' class=''>5</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=6' class=''>6</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=7' class=''>7</a></td>	
+<td  align="center" nowrap="true" bordercolor=""  bgcolor="">&nbsp;<a class="" href="?PageNo=5">下一页</a>&nbsp;<a class="" href="?PageNo=7">最后一页</a>&nbsp;</td>	
+<td  align="center" nowrap="true" bordercolor=""  bgcolor=""><input onkeydown="MyPaper1_SubmitKeyClick('MyPaper1_goto');" type="text" onkeyup="value=value.replace(/[^\d]/g,'') "  onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"  name="MyPaper1_PageNo" value="4" size="4"/><input id="MyPaper1_goto" onclick="MyPaper1_GotoPage()" type="button" value="转到"  style="BORDER-RIGHT: #70b1cf 1px solid; BACKGROUND-POSITION: -15px -196px; BORDER-TOP: #70b1cf 1px solid; BORDER-LEFT: #70b1cf 1px solid; LINE-HEIGHT: 20px; BORDER-BOTTOM: #70b1cf 1px solid"/></td>	
+<script language =javascript>
+function MyPaper1_GotoPage()
+{
+   var b = document.getElementById("MyPaper1_PageNo").value;
+   if(b>7){
+      alert("无效页数！");
+      document.getElementById("MyPaper1_PageNo").value="";
+      document.getElementById("MyPaper1_PageNo").focus();
+   }else{
+      window.location.replace("?PageNo="+b+"");
+   }
+}
+function MyPaper1_SubmitKeyClick(button)
+{ 
+   if (event.keyCode == 13) 
+   {
+       event.keyCode=9;
+       event.returnValue = false;
+       document.all[button].click();
+   }
+}
+</script></tr></table>	
+
+                            &nbsp;</td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                </tbody>
+            </table></td>
+          </tr>
+        </table>
+        <table id="uxp_ftr_control" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td id="uxp_ftr_left"><ul>
+                  <li><a id="uxp_ftr_link_trademark" 
+        href="#" target="_top">© 2007 
+                    北京金盘软件技术有限公司</a> </li>
+                <li><a id="uxp_ftr_link_privacy" 
+        href="#" target="_top">隐私声明</a> </li>
+                <li class="uxp_ftr_item_last"><a id="uxp_ftr_link_legal" 
+        href="#" target="_top">使用条款</a> </li>
+              </ul></td>
+              <td id="uxp_ftr_right"><table id="uxp_ftr_right_nest" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td><ul>
+                          <li><a id="uxp_ftr_link_helpcentral" 
+              href="#" target="_top">帮助中心</a> </li>
+                        <li><a id="uxp_ftr_link_account" 
+              href="#" target="_top">帐户</a> </li>
+                        <li class="uxp_ftr_item_last"><a id="uxp_ftr_link_feedback" 
+              href="#" 
+              target="_top">反馈</a> </li>
+                      </ul></td>
+                    </tr>
+                  </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAwLB5byZAgL7hryJDwLgnZ70BOYnFfIfnZZiWqioUEGKkrP3q79V" />
+</div>
+
+<script type="text/javascript">
+<!--
+Sys.Application.initialize();
+// -->
+</script>
+</form>
+</body>
+</html>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+	查看我的借阅历史
+</title>
+    <style type="text/css">
+<!--
+.STYLE1 {color: #FFFFFF}
+.css {FONT-SIZE: 14px; LINE-HEIGHT: 18px
+}
+-->
+    </style>
+    <link href="Images/default.css" rel="stylesheet" type="text/css" /><link href="Images/hig.css" rel="stylesheet" type="text/css" /><link href="English/Images/Popover.css" rel="stylesheet" type="text/css" /><link href="English/Images/samples.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+<!--
+.style2 {COLOR: #0000ff }
+-->
+    </style>
+    <link href="Images/default.css" rel="stylesheet" type="text/css" /><link href="Images/samples.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" /><link href="Images/hig.css" rel="stylesheet" type="text/css" /></head>
+<body>
+    <form name="form1" method="post" action="HisdoryList.aspx?PageNo=5" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+<!--
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+
+
+<script src="/gdweb/WebResource.axd?d=yw_OucaS4d8Pc_D3deN-gg2&amp;t=635019793903086291" type="text/javascript"></script>
+
+
+<script src="/gdweb/ScriptResource.axd?d=5mHhbVreRGwnCN7fS3g_4eUtzx2yBn4YwDt4CpnlbYFiypGvgjpGD8YacmBKsHO50&amp;t=633049125920000000" type="text/javascript"></script>
+<script src="/gdweb/ScriptResource.axd?d=5mHhbVreRGwnCN7fS3g_4eUtzx2yBn4YwDt4CpnlbYEHJDGgMJxx-mqstufues4xS7TM01tVrkGysrsDiFN61Q2&amp;t=633049125920000000" type="text/javascript"></script>
+    <div>
+      <div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', document.getElementById('form1'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+        <table width="101%" cellspacing="0" id="uxp_hdr">
+          <tbody>
+            <tr>
+              <td background="Images/ToolBarBg.gif" class="uxp_hdrInner"><table class="uxp_hdrInnerTable" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td class="uxp_hdr_pointer" id="uxp_hdr_jewelParent" 
+          onmouseleave="this.className=this.className.replace(' uxp_hdr_jewelSpanHover','')" 
+          onmouseenter="this.className+=' uxp_hdr_jewelSpanHover'"><br />
+                      </td>
+                      <td>
+<link rel="Shortcut Icon" href="Images/JP.ico">
+        
+        <div>
+      <table width=100%>
+      <tr align=left>
+      <td>
+      <div><H1><div id="TOPMun1_Title" class="" style="color: white">金盘馆藏查询系统</div></H1></div>
+      </td>
+
+      <td>
+      <!------导航菜单---------->
+       <table id="uxp_hdr_middleArea" align="right" border="0" cellpadding="2" cellspacing="6">
+    <tbody>
+        <tr>
+            <td id="uxp_hdr_tabsParent" style="width: 5px">
+                <table id="uxp_hdr_tabs" cellspacing="0" class="uxp_hdr_pointer">
+                    <tbody>
+                        <tr>
+                           <span id="TOPMun1_LblMun"><td style="height: 21px"><A href='default.aspx'><span>首页</span></A></td><td style="height: 21px"><A href='default.aspx'><span>书目查询</span></A></td><td style="height: 21px"><A href='MagazineCantoScarch.aspx'><span>期刊篇名</span></A></td><td style="height: 21px"><A href='ReservedList.aspx'><span>预约到馆</span></A></td><td style="height: 21px"><A href='ExpiredList.aspx'><span>超期公告</span></A></td><td style="height: 21px"><A href='NewBooKScarch.aspx'><span>新书通报</span></A></td><td style="height: 21px"><A href='AdvicesScarch.aspx'><span>情报检索</span></A></td><td style="height: 21px"><A href='WriteJGBook.aspx'><span>新书征订</span></A></td><td style="height: 21px"><A href='ReaderLogin.aspx'><span>读者登录</span></A></td><td style="height: 21px"><A href='OnlineStudy.aspx'><span>在线咨询/培训</span></A></td><td style="height: 21px"><A href='ReaderTable.aspx'><span>读者管理</span</a></td></span></tr>
+                    </tbody>
+                </table>
+                
+            </td>
+            <td id="uxp_hdr_searchParent">
+            </td>
+        </tr>
+    </tbody>
+</table>
+      </td>
+      </tr>
+      </table>
+     
+</div>
+
+                      </td>
+                      <td class="uxp_hdr_pointer" 
+  id="uxp_hdr_meParent"></td>
+                    </tr>
+                  </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+        <script src="Images/header.js" defer="defer" 
+type="text/javascript"></script>
+        <table width="100%" height="85" border="0" cellpadding="5" background="Images/Bg.gif">
+          <tr>
+            <td colspan="4">
+			<table class="border_2" height="130" cellspacing="0" cellpadding="0" 
+            width="100%" border="0">
+                <tbody>
+                  <tr>
+                    <td valign="top" background="Images/topBack.gif" class="uxp_hdrInner" style="height: 33px"><table width="100%" border="0" cellspacing="1" cellpadding="1" class="uxp_hdrInnerTable">
+                        <tr>
+                          <td>&nbsp; <img src="Images/gif-0803.gif" width="11" height="12" /><span class="Me STYLE1">我的位置</span><span class="STYLE1">:</span><a class="BL" href="#" target="_top"><span><span id="GetTitle">金盘书目数据查询</span></span></a> <span class="STYLE1"> --&gt;<a href="ReaderTable.aspx" class="BL">读者管理</a>--&gt;查看我的借阅历史</span></td>
+                        </tr>
+                      </table>
+                        <link href="Images/default.css" rel="stylesheet" type="text/css" />
+<link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" />
+<link href="Images/samples.css" rel="stylesheet" type="text/css" />
+<link href="Images/Popover.css" rel="stylesheet" type="text/css" />
+<link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" />
+<link href="Images/hig.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style>
+
+<table width="100%" height="18" border="1" cellpadding="0"  bordercolor="#CCCCCC"  cellspacing="0" class="border_2">
+  <tr>
+    <th background="Images/loginback.gif" scope="row" style="height: 18px"><div align="left">
+        &nbsp;&nbsp;
+        <img src="Images/User.gif" width="22" height="18" />
+        <span id="CheckLogin1_Label1" class="BL" style="display:inline-block;color:#4891BF;font-family:宋体;font-size:9pt;font-weight:normal;width:172px;"><span> 欢迎您: 请选择你的操作</span></span><a id="CheckLogin1_LinkButton1" href="javascript:__doPostBack('CheckLogin1$LinkButton1','')" style="color:#4891BF;font-weight:normal;">【退出登录】</a><a id="CheckLogin1_LinkButton2" href="javascript:__doPostBack('CheckLogin1$LinkButton2','')" style="color:#4891BF;font-weight:normal;">【查看我的书目选单】</a></div></th>
+  </tr>
+</table>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="97" valign="middle"><table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+                      
+                      <tr>
+                        <td><table cellspacing="0" cellpadding="3" rules="all" border="1" id="DataGrid1" style="background-color:White;border-color:#CCCCCC;border-width:1px;border-style:None;width:100%;border-collapse:collapse;">
+	<tr style="color:White;background-color:#006699;font-weight:bold;">
+		<td style="color:White;">题名</td><td style="color:White;">登录号</td><td style="color:White;">条形码</td><td style="color:White;">处理时间</td><td style="color:White;">操作类型</td>
+	</tr><tr style="color:#000066;">
+		<td>PHP、MYSQL和APACHE入门经典</td><td>0709583</td><td>0709583</td><td>2014-1-6 16:02:26</td><td>还书</td>
+	</tr><tr style="color:#000066;">
+		<td>C/C++常用算法手册</td><td>0710564</td><td>0710564</td><td>2014-1-6 16:02:18</td><td>还书</td>
+	</tr><tr style="color:#000066;">
+		<td>PHP+MYSQL开发技术详解</td><td>0707028</td><td>0707028</td><td>2014-1-6 16:02:13</td><td>还书</td>
+	</tr><tr style="color:#000066;">
+		<td>PHP+MYSQL开发技术详解</td><td>0707028</td><td>0707028</td><td>2014-1-6 15:18:15</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>C/C++常用算法手册</td><td>0710564</td><td>0710564</td><td>2014-1-6 15:18:09</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>PHP、MYSQL和APACHE入门经典</td><td>0709583</td><td>0709583</td><td>2014-1-6 15:18:04</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>C语言与程序设计</td><td>1412838</td><td>1412838</td><td>2014-1-6 15:05:51</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>PHP程序开发参考手册</td><td>1423240</td><td>1423240</td><td>2014-1-6 15:05:41</td><td>借书</td>
+	</tr>
+</table></td>
+                      </tr>
+                      <tr>
+                        <td align="center" height="41" width="100%">
+                            <table align=Left style="font:'System.String[]';font-size:;text-decoration:;" title="【分页控件】" cellspacing="1px" cellpadding="0px" ID="Table_MyPaper1" style="" height="28px" width="300px" class="" border="0px"  bgcolor="Transparent" bordercolor="White"><tr>	
+<td nowrap="true"  align="center" bordercolor="" style = ''  bgcolor=""></td>	
+<td nowrap="true"  align="center" bordercolor=""   bgcolor="">&nbsp;<a href="?PageNo=1">第一页</a>&nbsp;<a class="" href="?PageNo=4">上一页</a>&nbsp;</td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=1' class=''>1</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=2' class=''>2</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=3' class=''>3</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=4' class=''>4</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor="Red" ><a href='?PageNo=5' class=''><b><font color="5">5</font></b></a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=6' class=''>6</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=7' class=''>7</a></td>	
+<td  align="center" nowrap="true" bordercolor=""  bgcolor="">&nbsp;<a class="" href="?PageNo=6">下一页</a>&nbsp;<a class="" href="?PageNo=7">最后一页</a>&nbsp;</td>	
+<td  align="center" nowrap="true" bordercolor=""  bgcolor=""><input onkeydown="MyPaper1_SubmitKeyClick('MyPaper1_goto');" type="text" onkeyup="value=value.replace(/[^\d]/g,'') "  onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"  name="MyPaper1_PageNo" value="5" size="4"/><input id="MyPaper1_goto" onclick="MyPaper1_GotoPage()" type="button" value="转到"  style="BORDER-RIGHT: #70b1cf 1px solid; BACKGROUND-POSITION: -15px -196px; BORDER-TOP: #70b1cf 1px solid; BORDER-LEFT: #70b1cf 1px solid; LINE-HEIGHT: 20px; BORDER-BOTTOM: #70b1cf 1px solid"/></td>	
+<script language =javascript>
+function MyPaper1_GotoPage()
+{
+   var b = document.getElementById("MyPaper1_PageNo").value;
+   if(b>7){
+      alert("无效页数！");
+      document.getElementById("MyPaper1_PageNo").value="";
+      document.getElementById("MyPaper1_PageNo").focus();
+   }else{
+      window.location.replace("?PageNo="+b+"");
+   }
+}
+function MyPaper1_SubmitKeyClick(button)
+{ 
+   if (event.keyCode == 13) 
+   {
+       event.keyCode=9;
+       event.returnValue = false;
+       document.all[button].click();
+   }
+}
+</script></tr></table>	
+
+                            &nbsp;</td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                </tbody>
+            </table></td>
+          </tr>
+        </table>
+        <table id="uxp_ftr_control" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td id="uxp_ftr_left"><ul>
+                  <li><a id="uxp_ftr_link_trademark" 
+        href="#" target="_top">© 2007 
+                    北京金盘软件技术有限公司</a> </li>
+                <li><a id="uxp_ftr_link_privacy" 
+        href="#" target="_top">隐私声明</a> </li>
+                <li class="uxp_ftr_item_last"><a id="uxp_ftr_link_legal" 
+        href="#" target="_top">使用条款</a> </li>
+              </ul></td>
+              <td id="uxp_ftr_right"><table id="uxp_ftr_right_nest" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td><ul>
+                          <li><a id="uxp_ftr_link_helpcentral" 
+              href="#" target="_top">帮助中心</a> </li>
+                        <li><a id="uxp_ftr_link_account" 
+              href="#" target="_top">帐户</a> </li>
+                        <li class="uxp_ftr_item_last"><a id="uxp_ftr_link_feedback" 
+              href="#" 
+              target="_top">反馈</a> </li>
+                      </ul></td>
+                    </tr>
+                  </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAwLlubUuAvuGvIkPAuCdnvQEdx/wWZt4FVU3jc8UeGNt5WgFYxc=" />
+</div>
+
+<script type="text/javascript">
+<!--
+Sys.Application.initialize();
+// -->
+</script>
+</form>
+</body>
+</html>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+	查看我的借阅历史
+</title>
+    <style type="text/css">
+<!--
+.STYLE1 {color: #FFFFFF}
+.css {FONT-SIZE: 14px; LINE-HEIGHT: 18px
+}
+-->
+    </style>
+    <link href="Images/default.css" rel="stylesheet" type="text/css" /><link href="Images/hig.css" rel="stylesheet" type="text/css" /><link href="English/Images/Popover.css" rel="stylesheet" type="text/css" /><link href="English/Images/samples.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+<!--
+.style2 {COLOR: #0000ff }
+-->
+    </style>
+    <link href="Images/default.css" rel="stylesheet" type="text/css" /><link href="Images/samples.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" /><link href="Images/hig.css" rel="stylesheet" type="text/css" /></head>
+<body>
+    <form name="form1" method="post" action="HisdoryList.aspx?PageNo=6" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+<!--
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+
+
+<script src="/gdweb/WebResource.axd?d=yw_OucaS4d8Pc_D3deN-gg2&amp;t=635019793903086291" type="text/javascript"></script>
+
+
+<script src="/gdweb/ScriptResource.axd?d=5mHhbVreRGwnCN7fS3g_4eUtzx2yBn4YwDt4CpnlbYFiypGvgjpGD8YacmBKsHO50&amp;t=633049125920000000" type="text/javascript"></script>
+<script src="/gdweb/ScriptResource.axd?d=5mHhbVreRGwnCN7fS3g_4eUtzx2yBn4YwDt4CpnlbYEHJDGgMJxx-mqstufues4xS7TM01tVrkGysrsDiFN61Q2&amp;t=633049125920000000" type="text/javascript"></script>
+    <div>
+      <div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', document.getElementById('form1'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+        <table width="101%" cellspacing="0" id="uxp_hdr">
+          <tbody>
+            <tr>
+              <td background="Images/ToolBarBg.gif" class="uxp_hdrInner"><table class="uxp_hdrInnerTable" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td class="uxp_hdr_pointer" id="uxp_hdr_jewelParent" 
+          onmouseleave="this.className=this.className.replace(' uxp_hdr_jewelSpanHover','')" 
+          onmouseenter="this.className+=' uxp_hdr_jewelSpanHover'"><br />
+                      </td>
+                      <td>
+<link rel="Shortcut Icon" href="Images/JP.ico">
+        
+        <div>
+      <table width=100%>
+      <tr align=left>
+      <td>
+      <div><H1><div id="TOPMun1_Title" class="" style="color: white">金盘馆藏查询系统</div></H1></div>
+      </td>
+
+      <td>
+      <!------导航菜单---------->
+       <table id="uxp_hdr_middleArea" align="right" border="0" cellpadding="2" cellspacing="6">
+    <tbody>
+        <tr>
+            <td id="uxp_hdr_tabsParent" style="width: 5px">
+                <table id="uxp_hdr_tabs" cellspacing="0" class="uxp_hdr_pointer">
+                    <tbody>
+                        <tr>
+                           <span id="TOPMun1_LblMun"><td style="height: 21px"><A href='default.aspx'><span>首页</span></A></td><td style="height: 21px"><A href='default.aspx'><span>书目查询</span></A></td><td style="height: 21px"><A href='MagazineCantoScarch.aspx'><span>期刊篇名</span></A></td><td style="height: 21px"><A href='ReservedList.aspx'><span>预约到馆</span></A></td><td style="height: 21px"><A href='ExpiredList.aspx'><span>超期公告</span></A></td><td style="height: 21px"><A href='NewBooKScarch.aspx'><span>新书通报</span></A></td><td style="height: 21px"><A href='AdvicesScarch.aspx'><span>情报检索</span></A></td><td style="height: 21px"><A href='WriteJGBook.aspx'><span>新书征订</span></A></td><td style="height: 21px"><A href='ReaderLogin.aspx'><span>读者登录</span></A></td><td style="height: 21px"><A href='OnlineStudy.aspx'><span>在线咨询/培训</span></A></td><td style="height: 21px"><A href='ReaderTable.aspx'><span>读者管理</span</a></td></span></tr>
+                    </tbody>
+                </table>
+                
+            </td>
+            <td id="uxp_hdr_searchParent">
+            </td>
+        </tr>
+    </tbody>
+</table>
+      </td>
+      </tr>
+      </table>
+     
+</div>
+
+                      </td>
+                      <td class="uxp_hdr_pointer" 
+  id="uxp_hdr_meParent"></td>
+                    </tr>
+                  </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+        <script src="Images/header.js" defer="defer" 
+type="text/javascript"></script>
+        <table width="100%" height="85" border="0" cellpadding="5" background="Images/Bg.gif">
+          <tr>
+            <td colspan="4">
+			<table class="border_2" height="130" cellspacing="0" cellpadding="0" 
+            width="100%" border="0">
+                <tbody>
+                  <tr>
+                    <td valign="top" background="Images/topBack.gif" class="uxp_hdrInner" style="height: 33px"><table width="100%" border="0" cellspacing="1" cellpadding="1" class="uxp_hdrInnerTable">
+                        <tr>
+                          <td>&nbsp; <img src="Images/gif-0803.gif" width="11" height="12" /><span class="Me STYLE1">我的位置</span><span class="STYLE1">:</span><a class="BL" href="#" target="_top"><span><span id="GetTitle">金盘书目数据查询</span></span></a> <span class="STYLE1"> --&gt;<a href="ReaderTable.aspx" class="BL">读者管理</a>--&gt;查看我的借阅历史</span></td>
+                        </tr>
+                      </table>
+                        <link href="Images/default.css" rel="stylesheet" type="text/css" />
+<link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" />
+<link href="Images/samples.css" rel="stylesheet" type="text/css" />
+<link href="Images/Popover.css" rel="stylesheet" type="text/css" />
+<link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" />
+<link href="Images/hig.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style>
+
+<table width="100%" height="18" border="1" cellpadding="0"  bordercolor="#CCCCCC"  cellspacing="0" class="border_2">
+  <tr>
+    <th background="Images/loginback.gif" scope="row" style="height: 18px"><div align="left">
+        &nbsp;&nbsp;
+        <img src="Images/User.gif" width="22" height="18" />
+        <span id="CheckLogin1_Label1" class="BL" style="display:inline-block;color:#4891BF;font-family:宋体;font-size:9pt;font-weight:normal;width:172px;"><span> 欢迎您: 请选择你的操作</span></span><a id="CheckLogin1_LinkButton1" href="javascript:__doPostBack('CheckLogin1$LinkButton1','')" style="color:#4891BF;font-weight:normal;">【退出登录】</a><a id="CheckLogin1_LinkButton2" href="javascript:__doPostBack('CheckLogin1$LinkButton2','')" style="color:#4891BF;font-weight:normal;">【查看我的书目选单】</a></div></th>
+  </tr>
+</table>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="97" valign="middle"><table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+                      
+                      <tr>
+                        <td><table cellspacing="0" cellpadding="3" rules="all" border="1" id="DataGrid1" style="background-color:White;border-color:#CCCCCC;border-width:1px;border-style:None;width:100%;border-collapse:collapse;">
+	<tr style="color:White;background-color:#006699;font-weight:bold;">
+		<td style="color:White;">题名</td><td style="color:White;">登录号</td><td style="color:White;">条形码</td><td style="color:White;">处理时间</td><td style="color:White;">操作类型</td>
+	</tr><tr style="color:#000066;">
+		<td>PHP+MYSQL开发技术详解</td><td>1367026</td><td>1367026</td><td>2014-1-6 15:05:34</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>PHP、MYSQL和APACHE入门经典</td><td>1423097</td><td>1423097</td><td>2014-1-6 15:05:26</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>C/C++常用算法手册</td><td>1406446</td><td>1406446</td><td>2014-1-6 15:05:19</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>CSS设计指南</td><td>1377581</td><td>1377581</td><td>2013-12-11 19:25:11</td><td>还书</td>
+	</tr><tr style="color:#000066;">
+		<td>HTML 5与CSS 3权威指南.上册</td><td>1378062</td><td>1378062</td><td>2013-12-11 19:25:03</td><td>还书</td>
+	</tr><tr style="color:#000066;">
+		<td>高等数学学习辅导</td><td>1381572</td><td>1381572</td><td>2013-12-11 19:24:49</td><td>还书</td>
+	</tr><tr style="color:#000066;">
+		<td>不列颠人:传说和历史</td><td>1416351</td><td>1416351</td><td>2013-12-11 19:24:37</td><td>还书</td>
+	</tr><tr style="color:#000066;">
+		<td>JQUERY 高级编程</td><td>1392086</td><td>1392086</td><td>2013-12-11 19:24:27</td><td>还书</td>
+	</tr>
+</table></td>
+                      </tr>
+                      <tr>
+                        <td align="center" height="41" width="100%">
+                            <table align=Left style="font:'System.String[]';font-size:;text-decoration:;" title="【分页控件】" cellspacing="1px" cellpadding="0px" ID="Table_MyPaper1" style="" height="28px" width="300px" class="" border="0px"  bgcolor="Transparent" bordercolor="White"><tr>	
+<td nowrap="true"  align="center" bordercolor="" style = ''  bgcolor=""></td>	
+<td nowrap="true"  align="center" bordercolor=""   bgcolor="">&nbsp;<a href="?PageNo=1">第一页</a>&nbsp;<a class="" href="?PageNo=5">上一页</a>&nbsp;</td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=1' class=''>1</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=2' class=''>2</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=3' class=''>3</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=4' class=''>4</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=5' class=''>5</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor="Red" ><a href='?PageNo=6' class=''><b><font color="6">6</font></b></a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=7' class=''>7</a></td>	
+<td  align="center" nowrap="true" bordercolor=""  bgcolor="">&nbsp;<a class="" href="?PageNo=7">下一页</a>&nbsp;<a class="" href="?PageNo=7">最后一页</a>&nbsp;</td>	
+<td  align="center" nowrap="true" bordercolor=""  bgcolor=""><input onkeydown="MyPaper1_SubmitKeyClick('MyPaper1_goto');" type="text" onkeyup="value=value.replace(/[^\d]/g,'') "  onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"  name="MyPaper1_PageNo" value="6" size="4"/><input id="MyPaper1_goto" onclick="MyPaper1_GotoPage()" type="button" value="转到"  style="BORDER-RIGHT: #70b1cf 1px solid; BACKGROUND-POSITION: -15px -196px; BORDER-TOP: #70b1cf 1px solid; BORDER-LEFT: #70b1cf 1px solid; LINE-HEIGHT: 20px; BORDER-BOTTOM: #70b1cf 1px solid"/></td>	
+<script language =javascript>
+function MyPaper1_GotoPage()
+{
+   var b = document.getElementById("MyPaper1_PageNo").value;
+   if(b>7){
+      alert("无效页数！");
+      document.getElementById("MyPaper1_PageNo").value="";
+      document.getElementById("MyPaper1_PageNo").focus();
+   }else{
+      window.location.replace("?PageNo="+b+"");
+   }
+}
+function MyPaper1_SubmitKeyClick(button)
+{ 
+   if (event.keyCode == 13) 
+   {
+       event.keyCode=9;
+       event.returnValue = false;
+       document.all[button].click();
+   }
+}
+</script></tr></table>	
+
+                            &nbsp;</td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                </tbody>
+            </table></td>
+          </tr>
+        </table>
+        <table id="uxp_ftr_control" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td id="uxp_ftr_left"><ul>
+                  <li><a id="uxp_ftr_link_trademark" 
+        href="#" target="_top">© 2007 
+                    北京金盘软件技术有限公司</a> </li>
+                <li><a id="uxp_ftr_link_privacy" 
+        href="#" target="_top">隐私声明</a> </li>
+                <li class="uxp_ftr_item_last"><a id="uxp_ftr_link_legal" 
+        href="#" target="_top">使用条款</a> </li>
+              </ul></td>
+              <td id="uxp_ftr_right"><table id="uxp_ftr_right_nest" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td><ul>
+                          <li><a id="uxp_ftr_link_helpcentral" 
+              href="#" target="_top">帮助中心</a> </li>
+                        <li><a id="uxp_ftr_link_account" 
+              href="#" target="_top">帐户</a> </li>
+                        <li class="uxp_ftr_item_last"><a id="uxp_ftr_link_feedback" 
+              href="#" 
+              target="_top">反馈</a> </li>
+                      </ul></td>
+                    </tr>
+                  </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAwK766GvCgL7hryJDwLgnZ70BDAXI8F4WJCUOQCC3l8a7fMoGFtm" />
+</div>
+
+<script type="text/javascript">
+<!--
+Sys.Application.initialize();
+// -->
+</script>
+</form>
+</body>
+</html>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+	查看我的借阅历史
+</title>
+    <style type="text/css">
+<!--
+.STYLE1 {color: #FFFFFF}
+.css {FONT-SIZE: 14px; LINE-HEIGHT: 18px
+}
+-->
+    </style>
+    <link href="Images/default.css" rel="stylesheet" type="text/css" /><link href="Images/hig.css" rel="stylesheet" type="text/css" /><link href="English/Images/Popover.css" rel="stylesheet" type="text/css" /><link href="English/Images/samples.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+<!--
+.style2 {COLOR: #0000ff }
+-->
+    </style>
+    <link href="Images/default.css" rel="stylesheet" type="text/css" /><link href="Images/samples.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" /><link href="Images/hig.css" rel="stylesheet" type="text/css" /></head>
+<body>
+    <form name="form1" method="post" action="HisdoryList.aspx?PageNo=7" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+<!--
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+
+
+<script src="/gdweb/WebResource.axd?d=yw_OucaS4d8Pc_D3deN-gg2&amp;t=635019793903086291" type="text/javascript"></script>
+
+
+<script src="/gdweb/ScriptResource.axd?d=5mHhbVreRGwnCN7fS3g_4eUtzx2yBn4YwDt4CpnlbYFiypGvgjpGD8YacmBKsHO50&amp;t=633049125920000000" type="text/javascript"></script>
+<script src="/gdweb/ScriptResource.axd?d=5mHhbVreRGwnCN7fS3g_4eUtzx2yBn4YwDt4CpnlbYEHJDGgMJxx-mqstufues4xS7TM01tVrkGysrsDiFN61Q2&amp;t=633049125920000000" type="text/javascript"></script>
+    <div>
+      <div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', document.getElementById('form1'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+        <table width="101%" cellspacing="0" id="uxp_hdr">
+          <tbody>
+            <tr>
+              <td background="Images/ToolBarBg.gif" class="uxp_hdrInner"><table class="uxp_hdrInnerTable" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td class="uxp_hdr_pointer" id="uxp_hdr_jewelParent" 
+          onmouseleave="this.className=this.className.replace(' uxp_hdr_jewelSpanHover','')" 
+          onmouseenter="this.className+=' uxp_hdr_jewelSpanHover'"><br />
+                      </td>
+                      <td>
+<link rel="Shortcut Icon" href="Images/JP.ico">
+        
+        <div>
+      <table width=100%>
+      <tr align=left>
+      <td>
+      <div><H1><div id="TOPMun1_Title" class="" style="color: white">金盘馆藏查询系统</div></H1></div>
+      </td>
+
+      <td>
+      <!------导航菜单---------->
+       <table id="uxp_hdr_middleArea" align="right" border="0" cellpadding="2" cellspacing="6">
+    <tbody>
+        <tr>
+            <td id="uxp_hdr_tabsParent" style="width: 5px">
+                <table id="uxp_hdr_tabs" cellspacing="0" class="uxp_hdr_pointer">
+                    <tbody>
+                        <tr>
+                           <span id="TOPMun1_LblMun"><td style="height: 21px"><A href='default.aspx'><span>首页</span></A></td><td style="height: 21px"><A href='default.aspx'><span>书目查询</span></A></td><td style="height: 21px"><A href='MagazineCantoScarch.aspx'><span>期刊篇名</span></A></td><td style="height: 21px"><A href='ReservedList.aspx'><span>预约到馆</span></A></td><td style="height: 21px"><A href='ExpiredList.aspx'><span>超期公告</span></A></td><td style="height: 21px"><A href='NewBooKScarch.aspx'><span>新书通报</span></A></td><td style="height: 21px"><A href='AdvicesScarch.aspx'><span>情报检索</span></A></td><td style="height: 21px"><A href='WriteJGBook.aspx'><span>新书征订</span></A></td><td style="height: 21px"><A href='ReaderLogin.aspx'><span>读者登录</span></A></td><td style="height: 21px"><A href='OnlineStudy.aspx'><span>在线咨询/培训</span></A></td><td style="height: 21px"><A href='ReaderTable.aspx'><span>读者管理</span</a></td></span></tr>
+                    </tbody>
+                </table>
+                
+            </td>
+            <td id="uxp_hdr_searchParent">
+            </td>
+        </tr>
+    </tbody>
+</table>
+      </td>
+      </tr>
+      </table>
+     
+</div>
+
+                      </td>
+                      <td class="uxp_hdr_pointer" 
+  id="uxp_hdr_meParent"></td>
+                    </tr>
+                  </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+        <script src="Images/header.js" defer="defer" 
+type="text/javascript"></script>
+        <table width="100%" height="85" border="0" cellpadding="5" background="Images/Bg.gif">
+          <tr>
+            <td colspan="4">
+			<table class="border_2" height="130" cellspacing="0" cellpadding="0" 
+            width="100%" border="0">
+                <tbody>
+                  <tr>
+                    <td valign="top" background="Images/topBack.gif" class="uxp_hdrInner" style="height: 33px"><table width="100%" border="0" cellspacing="1" cellpadding="1" class="uxp_hdrInnerTable">
+                        <tr>
+                          <td>&nbsp; <img src="Images/gif-0803.gif" width="11" height="12" /><span class="Me STYLE1">我的位置</span><span class="STYLE1">:</span><a class="BL" href="#" target="_top"><span><span id="GetTitle">金盘书目数据查询</span></span></a> <span class="STYLE1"> --&gt;<a href="ReaderTable.aspx" class="BL">读者管理</a>--&gt;查看我的借阅历史</span></td>
+                        </tr>
+                      </table>
+                        <link href="Images/default.css" rel="stylesheet" type="text/css" />
+<link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" />
+<link href="Images/samples.css" rel="stylesheet" type="text/css" />
+<link href="Images/Popover.css" rel="stylesheet" type="text/css" />
+<link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" />
+<link href="Images/hig.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style>
+
+<table width="100%" height="18" border="1" cellpadding="0"  bordercolor="#CCCCCC"  cellspacing="0" class="border_2">
+  <tr>
+    <th background="Images/loginback.gif" scope="row" style="height: 18px"><div align="left">
+        &nbsp;&nbsp;
+        <img src="Images/User.gif" width="22" height="18" />
+        <span id="CheckLogin1_Label1" class="BL" style="display:inline-block;color:#4891BF;font-family:宋体;font-size:9pt;font-weight:normal;width:172px;"><span> 欢迎您: 请选择你的操作</span></span><a id="CheckLogin1_LinkButton1" href="javascript:__doPostBack('CheckLogin1$LinkButton1','')" style="color:#4891BF;font-weight:normal;">【退出登录】</a><a id="CheckLogin1_LinkButton2" href="javascript:__doPostBack('CheckLogin1$LinkButton2','')" style="color:#4891BF;font-weight:normal;">【查看我的书目选单】</a></div></th>
+  </tr>
+</table>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="97" valign="middle"><table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+                      
+                      <tr>
+                        <td><table cellspacing="0" cellpadding="3" rules="all" border="1" id="DataGrid1" style="background-color:White;border-color:#CCCCCC;border-width:1px;border-style:None;width:100%;border-collapse:collapse;">
+	<tr style="color:White;background-color:#006699;font-weight:bold;">
+		<td style="color:White;">题名</td><td style="color:White;">登录号</td><td style="color:White;">条形码</td><td style="color:White;">处理时间</td><td style="color:White;">操作类型</td>
+	</tr><tr style="color:#000066;">
+		<td>线性代数讲义</td><td>1401784</td><td>1401784</td><td>2013-12-11 19:24:11</td><td>还书</td>
+	</tr><tr style="color:#000066;">
+		<td>HTML 5与CSS 3权威指南.上册</td><td>1378062</td><td>1378062</td><td>2013-12-7 23:16:47</td><td>续借</td>
+	</tr><tr style="color:#000066;">
+		<td>不列颠人:传说和历史</td><td>1416351</td><td>1416351</td><td>2013-10-26 20:10:36</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>高等数学学习辅导</td><td>1381572</td><td>1381572</td><td>2013-10-26 20:10:33</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>线性代数讲义</td><td>1401784</td><td>1401784</td><td>2013-10-26 20:10:28</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>JQUERY 高级编程</td><td>1392086</td><td>1392086</td><td>2013-10-26 20:09:22</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>CSS设计指南</td><td>1377581</td><td>1377581</td><td>2013-10-26 20:09:12</td><td>借书</td>
+	</tr><tr style="color:#000066;">
+		<td>HTML 5与CSS 3权威指南.上册</td><td>1378062</td><td>1378062</td><td>2013-10-26 20:09:03</td><td>借书</td>
+	</tr>
+</table></td>
+                      </tr>
+                      <tr>
+                        <td align="center" height="41" width="100%">
+                            <table align=Left style="font:'System.String[]';font-size:;text-decoration:;" title="【分页控件】" cellspacing="1px" cellpadding="0px" ID="Table_MyPaper1" style="" height="28px" width="300px" class="" border="0px"  bgcolor="Transparent" bordercolor="White"><tr>	
+<td nowrap="true"  align="center" bordercolor="" style = ''  bgcolor=""></td>	
+<td nowrap="true"  align="center" bordercolor=""   bgcolor="">&nbsp;<a href="?PageNo=1">第一页</a>&nbsp;<a class="" href="?PageNo=6">上一页</a>&nbsp;</td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=1' class=''>1</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=2' class=''>2</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=3' class=''>3</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=4' class=''>4</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=5' class=''>5</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=6' class=''>6</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor="Red" ><a href='?PageNo=7' class=''><b><font color="7">7</font></b></a></td>	
+<td  align="center" nowrap="true" bordercolor=""  bgcolor="">&nbsp;下一页&nbsp;<a class="" href="?PageNo=7">最后一页</a>&nbsp;</td>	
+<td  align="center" nowrap="true" bordercolor=""  bgcolor=""><input onkeydown="MyPaper1_SubmitKeyClick('MyPaper1_goto');" type="text" onkeyup="value=value.replace(/[^\d]/g,'') "  onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"  name="MyPaper1_PageNo" value="7" size="4"/><input id="MyPaper1_goto" onclick="MyPaper1_GotoPage()" type="button" value="转到"  style="BORDER-RIGHT: #70b1cf 1px solid; BACKGROUND-POSITION: -15px -196px; BORDER-TOP: #70b1cf 1px solid; BORDER-LEFT: #70b1cf 1px solid; LINE-HEIGHT: 20px; BORDER-BOTTOM: #70b1cf 1px solid"/></td>	
+<script language =javascript>
+function MyPaper1_GotoPage()
+{
+   var b = document.getElementById("MyPaper1_PageNo").value;
+   if(b>7){
+      alert("无效页数！");
+      document.getElementById("MyPaper1_PageNo").value="";
+      document.getElementById("MyPaper1_PageNo").focus();
+   }else{
+      window.location.replace("?PageNo="+b+"");
+   }
+}
+function MyPaper1_SubmitKeyClick(button)
+{ 
+   if (event.keyCode == 13) 
+   {
+       event.keyCode=9;
+       event.returnValue = false;
+       document.all[button].click();
+   }
+}
+</script></tr></table>	
+
+                            &nbsp;</td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                </tbody>
+            </table></td>
+          </tr>
+        </table>
+        <table id="uxp_ftr_control" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td id="uxp_ftr_left"><ul>
+                  <li><a id="uxp_ftr_link_trademark" 
+        href="#" target="_top">© 2007 
+                    北京金盘软件技术有限公司</a> </li>
+                <li><a id="uxp_ftr_link_privacy" 
+        href="#" target="_top">隐私声明</a> </li>
+                <li class="uxp_ftr_item_last"><a id="uxp_ftr_link_legal" 
+        href="#" target="_top">使用条款</a> </li>
+              </ul></td>
+              <td id="uxp_ftr_right"><table id="uxp_ftr_right_nest" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td><ul>
+                          <li><a id="uxp_ftr_link_helpcentral" 
+              href="#" target="_top">帮助中心</a> </li>
+                        <li><a id="uxp_ftr_link_account" 
+              href="#" target="_top">帐户</a> </li>
+                        <li class="uxp_ftr_item_last"><a id="uxp_ftr_link_feedback" 
+              href="#" 
+              target="_top">反馈</a> </li>
+                      </ul></td>
+                    </tr>
+                  </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAwKLp6LTCAL7hryJDwLgnZ70BC3TfpwvdfHAlBmL2WaP/XGH4pvq" />
+</div>
+
+<script type="text/javascript">
+<!--
+Sys.Application.initialize();
+// -->
+</script>
+</form>
+</body>
+</html>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+	查看我的借阅历史
+</title>
+    <style type="text/css">
+<!--
+.STYLE1 {color: #FFFFFF}
+.css {FONT-SIZE: 14px; LINE-HEIGHT: 18px
+}
+-->
+    </style>
+    <link href="Images/default.css" rel="stylesheet" type="text/css" /><link href="Images/hig.css" rel="stylesheet" type="text/css" /><link href="English/Images/Popover.css" rel="stylesheet" type="text/css" /><link href="English/Images/samples.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+<!--
+.style2 {COLOR: #0000ff }
+-->
+    </style>
+    <link href="Images/default.css" rel="stylesheet" type="text/css" /><link href="Images/samples.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" /><link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" /><link href="Images/hig.css" rel="stylesheet" type="text/css" /></head>
+<body>
+    <form name="form1" method="post" action="HisdoryList.aspx?PageNo=8" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMjA2MDk0NjM5Nw9kFgICAw9kFggCAw9kFgQCAQ8WAh4JaW5uZXJodG1sBRjph5Hnm5jppobol4/mn6Xor6Lns7vnu59kAgMPDxYCHgRUZXh0BbcHPHRkIHN0eWxlPSJoZWlnaHQ6IDIxcHgiPjxBIGhyZWY9J2RlZmF1bHQuYXNweCc+PHNwYW4+6aaW6aG1PC9zcGFuPjwvQT48L3RkPjx0ZCBzdHlsZT0iaGVpZ2h0OiAyMXB4Ij48QSBocmVmPSdkZWZhdWx0LmFzcHgnPjxzcGFuPuS5puebruafpeivojwvc3Bhbj48L0E+PC90ZD48dGQgc3R5bGU9ImhlaWdodDogMjFweCI+PEEgaHJlZj0nTWFnYXppbmVDYW50b1NjYXJjaC5hc3B4Jz48c3Bhbj7mnJ/liIrnr4flkI08L3NwYW4+PC9BPjwvdGQ+PHRkIHN0eWxlPSJoZWlnaHQ6IDIxcHgiPjxBIGhyZWY9J1Jlc2VydmVkTGlzdC5hc3B4Jz48c3Bhbj7pooTnuqbliLDppoY8L3NwYW4+PC9BPjwvdGQ+PHRkIHN0eWxlPSJoZWlnaHQ6IDIxcHgiPjxBIGhyZWY9J0V4cGlyZWRMaXN0LmFzcHgnPjxzcGFuPui2heacn+WFrOWRijwvc3Bhbj48L0E+PC90ZD48dGQgc3R5bGU9ImhlaWdodDogMjFweCI+PEEgaHJlZj0nTmV3Qm9vS1NjYXJjaC5hc3B4Jz48c3Bhbj7mlrDkuabpgJrmiqU8L3NwYW4+PC9BPjwvdGQ+PHRkIHN0eWxlPSJoZWlnaHQ6IDIxcHgiPjxBIGhyZWY9J0FkdmljZXNTY2FyY2guYXNweCc+PHNwYW4+5oOF5oql5qOA57SiPC9zcGFuPjwvQT48L3RkPjx0ZCBzdHlsZT0iaGVpZ2h0OiAyMXB4Ij48QSBocmVmPSdXcml0ZUpHQm9vay5hc3B4Jz48c3Bhbj7mlrDkuablvoHorqI8L3NwYW4+PC9BPjwvdGQ+PHRkIHN0eWxlPSJoZWlnaHQ6IDIxcHgiPjxBIGhyZWY9J1JlYWRlckxvZ2luLmFzcHgnPjxzcGFuPuivu+iAheeZu+W9lTwvc3Bhbj48L0E+PC90ZD48dGQgc3R5bGU9ImhlaWdodDogMjFweCI+PEEgaHJlZj0nT25saW5lU3R1ZHkuYXNweCc+PHNwYW4+5Zyo57q/5ZKo6K+iL+WfueiurTwvc3Bhbj48L0E+PC90ZD48dGQgc3R5bGU9ImhlaWdodDogMjFweCI+PEEgaHJlZj0nUmVhZGVyVGFibGUuYXNweCc+PHNwYW4+6K+76ICF566h55CGPC9zcGFuPC9hPjwvdGQ+ZGQCBQ8PFgIfAQUY6YeR55uY5Lmm55uu5pWw5o2u5p+l6K+iZGQCBw9kFgICAg8PFgIfAQUuPHNwYW4+IOasoui/juaCqDog6K+36YCJ5oup5L2g55qE5pON5L2cPC9zcGFuPmRkAgkPPCsACwEADxYIHghEYXRhS2V5cxYAHgtfIUl0ZW1Db3VudGYeCVBhZ2VDb3VudAIBHhVfIURhdGFTb3VyY2VJdGVtQ291bnRmZGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFCE15UGFwZXIx35biOwicocLH4Mm3WMSWTVg8E9o=" />
+</div>
+
+<script type="text/javascript">
+<!--
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+
+
+<script src="/gdweb/WebResource.axd?d=yw_OucaS4d8Pc_D3deN-gg2&amp;t=635019793903086291" type="text/javascript"></script>
+
+
+<script src="/gdweb/ScriptResource.axd?d=5mHhbVreRGwnCN7fS3g_4eUtzx2yBn4YwDt4CpnlbYFiypGvgjpGD8YacmBKsHO50&amp;t=633049125920000000" type="text/javascript"></script>
+<script src="/gdweb/ScriptResource.axd?d=5mHhbVreRGwnCN7fS3g_4eUtzx2yBn4YwDt4CpnlbYEHJDGgMJxx-mqstufues4xS7TM01tVrkGysrsDiFN61Q2&amp;t=633049125920000000" type="text/javascript"></script>
+    <div>
+      <div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', document.getElementById('form1'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+        <table width="101%" cellspacing="0" id="uxp_hdr">
+          <tbody>
+            <tr>
+              <td background="Images/ToolBarBg.gif" class="uxp_hdrInner"><table class="uxp_hdrInnerTable" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td class="uxp_hdr_pointer" id="uxp_hdr_jewelParent" 
+          onmouseleave="this.className=this.className.replace(' uxp_hdr_jewelSpanHover','')" 
+          onmouseenter="this.className+=' uxp_hdr_jewelSpanHover'"><br />
+                      </td>
+                      <td>
+<link rel="Shortcut Icon" href="Images/JP.ico">
+        
+        <div>
+      <table width=100%>
+      <tr align=left>
+      <td>
+      <div><H1><div id="TOPMun1_Title" class="" style="color: white">金盘馆藏查询系统</div></H1></div>
+      </td>
+
+      <td>
+      <!------导航菜单---------->
+       <table id="uxp_hdr_middleArea" align="right" border="0" cellpadding="2" cellspacing="6">
+    <tbody>
+        <tr>
+            <td id="uxp_hdr_tabsParent" style="width: 5px">
+                <table id="uxp_hdr_tabs" cellspacing="0" class="uxp_hdr_pointer">
+                    <tbody>
+                        <tr>
+                           <span id="TOPMun1_LblMun"><td style="height: 21px"><A href='default.aspx'><span>首页</span></A></td><td style="height: 21px"><A href='default.aspx'><span>书目查询</span></A></td><td style="height: 21px"><A href='MagazineCantoScarch.aspx'><span>期刊篇名</span></A></td><td style="height: 21px"><A href='ReservedList.aspx'><span>预约到馆</span></A></td><td style="height: 21px"><A href='ExpiredList.aspx'><span>超期公告</span></A></td><td style="height: 21px"><A href='NewBooKScarch.aspx'><span>新书通报</span></A></td><td style="height: 21px"><A href='AdvicesScarch.aspx'><span>情报检索</span></A></td><td style="height: 21px"><A href='WriteJGBook.aspx'><span>新书征订</span></A></td><td style="height: 21px"><A href='ReaderLogin.aspx'><span>读者登录</span></A></td><td style="height: 21px"><A href='OnlineStudy.aspx'><span>在线咨询/培训</span></A></td><td style="height: 21px"><A href='ReaderTable.aspx'><span>读者管理</span</a></td></span></tr>
+                    </tbody>
+                </table>
+                
+            </td>
+            <td id="uxp_hdr_searchParent">
+            </td>
+        </tr>
+    </tbody>
+</table>
+      </td>
+      </tr>
+      </table>
+     
+</div>
+
+                      </td>
+                      <td class="uxp_hdr_pointer" 
+  id="uxp_hdr_meParent"></td>
+                    </tr>
+                  </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+        <script src="Images/header.js" defer="defer" 
+type="text/javascript"></script>
+        <table width="100%" height="85" border="0" cellpadding="5" background="Images/Bg.gif">
+          <tr>
+            <td colspan="4">
+			<table class="border_2" height="130" cellspacing="0" cellpadding="0" 
+            width="100%" border="0">
+                <tbody>
+                  <tr>
+                    <td valign="top" background="Images/topBack.gif" class="uxp_hdrInner" style="height: 33px"><table width="100%" border="0" cellspacing="1" cellpadding="1" class="uxp_hdrInnerTable">
+                        <tr>
+                          <td>&nbsp; <img src="Images/gif-0803.gif" width="11" height="12" /><span class="Me STYLE1">我的位置</span><span class="STYLE1">:</span><a class="BL" href="#" target="_top"><span><span id="GetTitle">金盘书目数据查询</span></span></a> <span class="STYLE1"> --&gt;<a href="ReaderTable.aspx" class="BL">读者管理</a>--&gt;查看我的借阅历史</span></td>
+                        </tr>
+                      </table>
+                        <link href="Images/default.css" rel="stylesheet" type="text/css" />
+<link href="Images/wlsc_IE.css" rel="stylesheet" type="text/css" />
+<link href="Images/samples.css" rel="stylesheet" type="text/css" />
+<link href="Images/Popover.css" rel="stylesheet" type="text/css" />
+<link href="Images/wlsc_v1.css" rel="stylesheet" type="text/css" />
+<link href="Images/hig.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style>
+
+<table width="100%" height="18" border="1" cellpadding="0"  bordercolor="#CCCCCC"  cellspacing="0" class="border_2">
+  <tr>
+    <th background="Images/loginback.gif" scope="row" style="height: 18px"><div align="left">
+        &nbsp;&nbsp;
+        <img src="Images/User.gif" width="22" height="18" />
+        <span id="CheckLogin1_Label1" class="BL" style="display:inline-block;color:#4891BF;font-family:宋体;font-size:9pt;font-weight:normal;width:172px;"><span> 欢迎您: 请选择你的操作</span></span><a id="CheckLogin1_LinkButton1" href="javascript:__doPostBack('CheckLogin1$LinkButton1','')" style="color:#4891BF;font-weight:normal;">【退出登录】</a><a id="CheckLogin1_LinkButton2" href="javascript:__doPostBack('CheckLogin1$LinkButton2','')" style="color:#4891BF;font-weight:normal;">【查看我的书目选单】</a></div></th>
+  </tr>
+</table>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="97" valign="middle"><table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+                      
+                      <tr>
+                        <td><table cellspacing="0" cellpadding="3" rules="all" border="1" id="DataGrid1" style="background-color:White;border-color:#CCCCCC;border-width:1px;border-style:None;width:100%;border-collapse:collapse;">
+	<tr style="color:White;background-color:#006699;font-weight:bold;">
+		<td style="color:White;">题名</td><td style="color:White;">登录号</td><td style="color:White;">条形码</td><td style="color:White;">处理时间</td><td style="color:White;">操作类型</td>
+	</tr>
+</table></td>
+                      </tr>
+                      <tr>
+                        <td align="center" height="41" width="100%">
+                            <table align=Left style="font:'System.String[]';font-size:;text-decoration:;" title="【分页控件】" cellspacing="1px" cellpadding="0px" ID="Table_MyPaper1" style="" height="28px" width="300px" class="" border="0px"  bgcolor="Transparent" bordercolor="White"><tr>	
+<td nowrap="true"  align="center" bordercolor="" style = ''  bgcolor=""></td>	
+<td nowrap="true"  align="center" bordercolor=""   bgcolor="">&nbsp;<a href="?PageNo=1">第一页</a>&nbsp;<a class="" href="?PageNo=7">上一页</a>&nbsp;</td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=1' class=''>1</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=2' class=''>2</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=3' class=''>3</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=4' class=''>4</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=5' class=''>5</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=6' class=''>6</a></td>	
+<td  nowrap="true"  style="width:10px;" align="center" bgcolor=""><a href='?PageNo=7' class=''>7</a></td>	
+<td  align="center" nowrap="true" bordercolor=""  bgcolor="">&nbsp;下一页&nbsp;<a class="" href="?PageNo=7">最后一页</a>&nbsp;</td>	
+<td  align="center" nowrap="true" bordercolor=""  bgcolor=""><input onkeydown="MyPaper1_SubmitKeyClick('MyPaper1_goto');" type="text" onkeyup="value=value.replace(/[^\d]/g,'') "  onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"  name="MyPaper1_PageNo" value="8" size="4"/><input id="MyPaper1_goto" onclick="MyPaper1_GotoPage()" type="button" value="转到"  style="BORDER-RIGHT: #70b1cf 1px solid; BACKGROUND-POSITION: -15px -196px; BORDER-TOP: #70b1cf 1px solid; BORDER-LEFT: #70b1cf 1px solid; LINE-HEIGHT: 20px; BORDER-BOTTOM: #70b1cf 1px solid"/></td>	
+<script language =javascript>
+function MyPaper1_GotoPage()
+{
+   var b = document.getElementById("MyPaper1_PageNo").value;
+   if(b>7){
+      alert("无效页数！");
+      document.getElementById("MyPaper1_PageNo").value="";
+      document.getElementById("MyPaper1_PageNo").focus();
+   }else{
+      window.location.replace("?PageNo="+b+"");
+   }
+}
+function MyPaper1_SubmitKeyClick(button)
+{ 
+   if (event.keyCode == 13) 
+   {
+       event.keyCode=9;
+       event.returnValue = false;
+       document.all[button].click();
+   }
+}
+</script></tr></table>	
+
+                            &nbsp;</td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                </tbody>
+            </table></td>
+          </tr>
+        </table>
+        <table id="uxp_ftr_control" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td id="uxp_ftr_left"><ul>
+                  <li><a id="uxp_ftr_link_trademark" 
+        href="#" target="_top">© 2007 
+                    北京金盘软件技术有限公司</a> </li>
+                <li><a id="uxp_ftr_link_privacy" 
+        href="#" target="_top">隐私声明</a> </li>
+                <li class="uxp_ftr_item_last"><a id="uxp_ftr_link_legal" 
+        href="#" target="_top">使用条款</a> </li>
+              </ul></td>
+              <td id="uxp_ftr_right"><table id="uxp_ftr_right_nest" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td><ul>
+                          <li><a id="uxp_ftr_link_helpcentral" 
+              href="#" target="_top">帮助中心</a> </li>
+                        <li><a id="uxp_ftr_link_account" 
+              href="#" target="_top">帐户</a> </li>
+                        <li class="uxp_ftr_item_last"><a id="uxp_ftr_link_feedback" 
+              href="#" 
+              target="_top">反馈</a> </li>
+                      </ul></td>
+                    </tr>
+                  </tbody>
+              </table></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAwKav+yBBQL7hryJDwLgnZ70BF/zcDqMqKEjc9lMt3SKInyJ2OFo" />
+</div>
+
+<script type="text/javascript">
+<!--
+Sys.Application.initialize();
+// -->
+</script>
+</form>
+</body>
+</html>
+
+8
