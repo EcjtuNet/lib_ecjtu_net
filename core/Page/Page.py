@@ -11,6 +11,13 @@ class Page:
 
 	def html(self):
 		return self._html
-	
-	def hisParserHtml(self,html):
-		return self.parse.hisParseHtml(html)
+
+	def nextPage(self):
+		self.page += 1
+
+	def page(self, page):
+		self.setPage(page)
+		self.fetchHtml()
+
+	def setPage(self, page):
+		self.page = page

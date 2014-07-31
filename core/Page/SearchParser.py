@@ -3,7 +3,7 @@
 from Parser import Parser
 import re
 
-class SearchParser:
+class SearchParser(Parser):
 	def __init__(self, html=''):
 		if html :
 			self.html = html

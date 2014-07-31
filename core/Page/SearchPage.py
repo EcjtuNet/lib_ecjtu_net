@@ -21,18 +21,7 @@ class SearchPage(Page):
 		r = Request()
 		self._html = r.post(post_url,data)
 		self._result = r.get(get_url)
-		print self._result
 		return self
-
-	def nextPage(self):
-		self.page += 1
-
-	def page(self, page):
-		self.setPage(page)
-		self.fetchHtml()
-
-	def setPage(self, page):
-		self.page = page
 
 
 if __name__ == "__main__":
