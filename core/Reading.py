@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from Model import Model
 from Database import Database
+from Request import Request
 
 class Reading(Model):
 	def __init__(self, rid=''):
@@ -32,3 +33,12 @@ class Reading(Model):
 				self.data['address']+','+
 			')'
 		)
+
+	def renew(self, uid, name=''):
+		if name:
+			self.database.cursor.execute('SELECT * FROM '+self.table+' WHERE uid='+int(uid) +'AND name='+str(name))
+		else:
+			self.database.cursor.execute('SELECT * FROM '+self.table+' WHERE uid='+int(uid))
+		rows = self.databases.cursor.fetchall()
+		for row in rows:
+			Request().get(row['rewew_link'])

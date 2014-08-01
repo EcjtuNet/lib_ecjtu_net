@@ -17,3 +17,5 @@ class User():
 	def getReading(self):
 		return Reading().getByUid(self.data[self.main_id_name])
 
+	def allRenew(self):
+		Reading().renew(self.data[self.main_id_name])
