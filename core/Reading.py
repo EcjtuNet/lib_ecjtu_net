@@ -34,11 +34,5 @@ class Reading(Model):
 			')'
 		)
 
-	def renew(self, uid, name=''):
-		if name:
-			self.database.cursor.execute('SELECT * FROM '+self.table+' WHERE uid='+int(uid) +'AND name='+str(name))
-		else:
-			self.database.cursor.execute('SELECT * FROM '+self.table+' WHERE uid='+int(uid))
-		rows = self.databases.cursor.fetchall()
-		for row in rows:
-			Request().get(row['rewew_link'])
+	def renew(self):
+			Request().get(self.data['rewew_link'])

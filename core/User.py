@@ -18,4 +18,6 @@ class User():
 		return Reading().getByUid(self.data[self.main_id_name])
 
 	def allRenew(self):
-		Reading().renew(self.data[self.main_id_name])
+		read_list = Reading().getByUid(self.data[self.main_id_name])
+		for i in read_list:
+			i.Reading().renew()
