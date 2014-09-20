@@ -19,13 +19,13 @@ class SearchPage(Page):
 		get_url = self.BASE_URL + '/gdweb/ScarchList.aspx?page='+str(self.page)
 		data = self.rule.make()
 		r = Request()
-		self._html = r.post(post_url,data)
-		self._result = r.get(get_url)
+		r.post(post_url,data)
+		self._html = r.get(get_url)
 		return self
 
 
 if __name__ == "__main__":
-	rule = SearchRule().add('title', 'python')
+	rule = SearchRule().add('title', 'ruby')
 	searchpage = SearchPage(rule)
-	print searchpage.fetchHtml()._html
+	print searchpage.fetchHtml().html()
 	print searchpage.parseHtml()

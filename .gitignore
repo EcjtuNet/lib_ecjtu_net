@@ -2,4 +2,4 @@
 *.swp
 *~
 Config.py
-core/Page/out.txt
+*.txt
