@@ -20,4 +20,4 @@ class SearchParser(Parser):
                 reg += u'<span id="Repeater1_ctl\d*_LblZrz">(.*)</span></span></td>[\S\s]*?'
                 reg += u'馆藏数:\[(\d*)\].*可外借数:\[(\d*)\]'
 		books = re.findall(reg, html, re.M) 
-		return books                
+		return books
