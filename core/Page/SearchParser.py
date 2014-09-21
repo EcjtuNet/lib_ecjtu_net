@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from bs4 import BeautifulSoup
 from Parser import Parser
 import re
 
@@ -9,12 +10,14 @@ class SearchParser(Parser):
 			self.html = html
 	def parse(self, html=''):
 		html = html if html else self.html
-		reg = r'<table width="100%" border="0">[\s\S]*'
-		reg = r"<a class='WL'.*>(.*)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp.*</a></span></td>[\s\S]*"
-		reg += r"<td>索书号：(.*)&nbsp&nbsp&nbsp&nbsp&nbspISBN/ISSN：(.*)&nbsp</td>[\s\S]*"
-		reg += r'<span id="Repeater1_ctl01_Label1">(.*)</span>&nbsp&nbsp&nbsp&nbsp[\s\S]*'
-		reg += r'<span id="Repeater1_ctl01_Label3">(.*)</span>[\s\S]*'
-		reg += r'<span id="Repeater1_ctl01_Lbelinfor">(.*)</span>[\s\S]*'
-		reg += r'<span id="Repeater1_ctl01_LblZrz">(.*)</span></span></td>'
-		books = re.findall(reg, html, re.M)
-		return books
+                html = unicode(BeautifulSoup(html))
+                reg = ''
+                reg += u'<span id="Repeater1_ctl\d*_LabeBookName"><a .*>(.*)\xa0{8}\[[\s\S]*?'
+                reg += u'<td>索书号：(.*)\xa0{4}&amp;nbspISBN;/ISSN：(.*)\xa0</td>[\s\S]*?'
+                reg += u'<span id="Repeater1_ctl\d*_Label1">(.*)</span>\xa0{4}\s*'
+                reg += u'<span id="Repeater1_ctl\d*_Label3">(.*)</span>[\s\S]*?'
+                reg += u'<span id="Repeater1_ctl\d*_Lbelinfor">(.*)</span>[\s\S]*?'
+                reg += u'<span id="Repeater1_ctl\d*_LblZrz">(.*)</span></span></td>[\S\s]*?'
+                reg += u'馆藏数:\[(\d*)\].*可外借数:\[(\d*)\]'
+		books = re.findall(reg, html, re.M) 
+		return books                
