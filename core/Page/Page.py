@@ -13,11 +13,11 @@ class Page:
 		return self._html
 
 	def nextPage(self):
-		self.page += 1
+		self._page += 1
 
 	def page(self, page):
 		self.setPage(page)
-		self.fetchHtml()
+		return self.fetchHtml()
 
 	def setPage(self, page):
-		self.page = page
+		self._page = page

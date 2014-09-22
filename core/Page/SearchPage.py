@@ -11,15 +11,15 @@ class SearchPage(Page):
 	def __init__(self, rule):
 		self.parser = SearchParser()
 		self.rule = rule
-		self.page = 1
+		self._page = 1
 		self.BASE_URL = 'http://172.16.15.229'
 
 	def fetchHtml(self):
 		post_url = self.BASE_URL + '/gdweb/CombinationScarch.aspx'
-		get_url = self.BASE_URL + '/gdweb/ScarchList.aspx?page='+str(self.page)
+		get_url = self.BASE_URL + '/gdweb/ScarchList.aspx?page='+str(self._page)
 		data = self.rule.make()
 		r = Request()
-		r.post(post_url,data)
+		r.post(post_url, data)
 		self._html = r.get(get_url)
 		return self
 
