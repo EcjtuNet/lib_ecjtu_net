@@ -7,8 +7,7 @@ class Model:
 		self.data = {}
 		self.database = Database(True)
 		if main_id: 
-			self.database.cursor.execute('SELECT * FROM '+self.table+' WHERE '+self.main_id_name+'='+main_id)
-			self.data = self.database.cursor.fetchone()
+                        self.data = self.getBy(self.main_id_name, main_id)
 
 	def save(self):
 		pass
@@ -27,3 +26,7 @@ class Model:
 		for i in dict_data:
 			self.data[i] = dict_data[i]
 		return self
+
+        def getBy(self, key, value):
+                self.database.cursor.execute('SELECT * FROM '+str(self.table)+' WHERE '+str(key)+'='+str(value))
+                return self.database.cursor.fetchone()

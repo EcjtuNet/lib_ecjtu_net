@@ -4,10 +4,10 @@
 config = {
         'salt' : 'salt',
         'token_expire' : 3600,#second
-        'host' : '127.0.0.1',
-        'user' : '',
-        'passwd' : '',
-        'db' : '',
+        'host' : '202.101.208.35',
+        'user' : 'lib_ecjtu_net',
+        'passwd' : 'V9buaZsGC83Wtdb9',
+        'db' : 'lib_ecjtu_net',
         'charset' : 'utf8'
         }
 def get(str):

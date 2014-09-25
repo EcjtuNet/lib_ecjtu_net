@@ -26,8 +26,24 @@ def login():
     if u:
         return json.dumps({'result':True,'token':u.token})
     else:
-        return json.dumps({'result':False,'token':''})
+        return json.dumps({'result':False, 'msg':'Username or password is correct', 'token':''})
     
+@app.route("/api/register", methods=['POST'])
+def register():
+    username = request.form['username']
+    password = request.form['password']
+    if User().is_exist(username):
+        return json.dumps({'result':False, 'msg':'Username exist'})
+    u = User().register(username, password)
+    if u:
+        return json.dumps({
+            'result':True,
+            'msg':'ok',
+            'user':u
+        })
+    else:
+        return json.dumps({'result':False, 'msg':'Register error'})
+
 @app.route("/")
 def index():
     return 'hello world'
