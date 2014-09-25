@@ -14,6 +14,7 @@ class History(Model):
 		history_list = []
 		for i in self.database.cursor.fetchall():
 			history_list.append(History().setData(i))
+                return history_list
 
 	def save(self):
 		self.database.cursor.execute(

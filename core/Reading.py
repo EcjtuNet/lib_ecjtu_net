@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from Model import Model
 from Database import Database
-from Request import Request
+from Page.Request import Request
 
 class Reading(Model):
 	def __init__(self, rid=''):
