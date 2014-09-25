@@ -3,6 +3,7 @@
 from flask import Flask, request
 from core.Page.SearchPage import SearchPage
 from core.Page.SearchRule import SearchRule
+from core.User import User
 import json
 app = Flask(__name__)
 app.debug = True
@@ -17,7 +18,16 @@ def search():
     result = SearchPage(r).page(page).parseHtml()
     return json.dumps(result)
     
-
+@app.route("/api/login", methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+    u = User().login(username, password)
+    if u:
+        return json.dumps({'result':True,'token':u.token})
+    else:
+        return json.dumps({'result':False,'token':''})
+    
 @app.route("/")
 def index():
     return 'hello world'
