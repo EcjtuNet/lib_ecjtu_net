@@ -7,6 +7,7 @@ from core.User import User
 import json
 app = Flask(__name__)
 app.debug = True
+
 @app.route("/api/search")
 def search():
     key = request.args.get('key')
@@ -26,7 +27,7 @@ def login():
     if u:
         return json.dumps({'result':True,'token':u.token})
     else:
-        return json.dumps({'result':False, 'msg':'Username or password is correct', 'token':''})
+        return json.dumps({'result':False, 'msg':'Username or password is incorrect', 'token':''})
     
 @app.route("/api/register", methods=['POST'])
 def register():
