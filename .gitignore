@@ -2,4 +2,6 @@
 *.swp
 *~
 *.txt
+*.swo
 Config.py
+test.sqlite
