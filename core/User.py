@@ -9,12 +9,12 @@ import time
 
 class User(db.Entity):
 
-    name = Required(str)
+    name = Optional(str)
     password = Required(str)
     student_id = Required(str, unique=True)
-    email = Required(str, unique=True)
+    email = Optional(str, unique=True)
     reg_time = Required(str)
-    renew_flag = Required(str)
+    renew_flag = Optional(str)
     tokens = Set(Token)
     readings = Set(Reading)
     histories = Set(History)
@@ -28,21 +28,28 @@ class User(db.Entity):
     @classmethod
     def login(cls, username, password):
         with db_session:
-            return User.get(student_id=username, password=User._salt(username, password))
+            u = User.get(student_id=username, password=User._salt(username, password))
+            u._setToken()
+            return u
     
     @classmethod
     def register(cls, username, password):
         with db_session:
-            return User(student_id=username, password=User._salt(username, password), reg_time=str(int(time.time())))
+            return User(
+                    name=username, 
+                    student_id=username, 
+                    password=User._salt(username, password), 
+                    reg_time=str(int(time.time()))
+                    )
    
     @classmethod
     def is_exist(cls, username):
         with db_session:
-            return User(student_id=username) 
+            return User.get(student_id=username) 
         
     def _setToken(self):
         with db_session:
-            self.tokens.create(token=User._makeToken(self.student_id), last_use_time=str(int(time.time())))
+            self.token = self.tokens.create(token=User._makeToken(self.student_id), last_use_time=str(int(time.time())))
 
     def checkToken(self, token):
         with db_session:

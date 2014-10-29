@@ -3,7 +3,7 @@
 from flask import Flask, request
 from core.Page.SearchPage import SearchPage
 from core.Page.SearchRule import SearchRule
-from core.User import User
+from core.Model import *
 import json
 app = Flask(__name__)
 app.debug = True
@@ -23,9 +23,9 @@ def search():
 def login():
     username = request.form['username']
     password = request.form['password']
-    u = User().login(username, password)
+    u = User.login(username, password)
     if u:
-        return json.dumps({'result':True,'token':u.token})
+        return json.dumps({'result':True,'token':u.token.to_dict()['token']})
     else:
         return json.dumps({'result':False, 'msg':'Username or password is incorrect', 'token':''})
     
@@ -33,14 +33,14 @@ def login():
 def register():
     username = request.form['username']
     password = request.form['password']
-    if User().is_exist(username):
+    if User.is_exist(username):
         return json.dumps({'result':False, 'msg':'Username exist'})
-    u = User().register(username, password)
+    u = User.register(username, password)
     if u:
         return json.dumps({
             'result':True,
             'msg':'ok',
-            'user':u
+            'user':u.to_dict()
         })
     else:
         return json.dumps({'result':False, 'msg':'Register error'})

@@ -8,4 +8,3 @@ from History import *
 from User import *
 from Token import *
 
-db.generate_mapping(create_tables=True)
