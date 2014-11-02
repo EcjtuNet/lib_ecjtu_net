@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from Model import *
+from User import *
 
 class History(db.Entity):
 
@@ -9,3 +10,4 @@ class History(db.Entity):
     code = Required(str)
     time = Required(str)
     type = Required(str)
+

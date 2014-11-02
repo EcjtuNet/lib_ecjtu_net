@@ -9,7 +9,9 @@ config = {
     'passwd' : 'V9buaZsGC83Wtdb9',
     'db' : 'lib_ecjtu_net',
     'charset' : 'utf8',
-    'develop' : True
+    'develop' : True,
+    'auto_renew_time' : 3 * 24 * 60 * 60, #second
+    'lib_base_url' : 'http://lib.ecjtu.jx.cn/gdweb/'
 }
 def get(str):
     return config[str]

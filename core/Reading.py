@@ -7,12 +7,12 @@ class Reading(db.Entity):
 
     user = Set("User")
     name = Required(str)
-    code = Required(str)
+    code = Required(str) #Such as 1420149
     borrow_time = Required(str)
-    return_time = Required(str)
+    due_time = Required(str)
     renewed = Required(bool)
     renew_link = Required(str)
-    index_code = Required(str)
+    index_code = Required(str) #Such as TP368.5/A114
     address = Required(str)
 
     def renew(self):
