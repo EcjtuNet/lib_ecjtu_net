@@ -12,7 +12,7 @@ class HistoryPage(Page):
         self.username = username
         self.password = password
 
-    def fetchHtml(self):
+    def fetch(self):
         login_url = 'http://lib.ecjtu.jx.cn/gdweb/ReaderTable.aspx'
         history_url = 'http://lib.ecjtu.jx.cn/gdweb/HisdoryList.aspx?PageNo='+str(self._page)
         r = Request()

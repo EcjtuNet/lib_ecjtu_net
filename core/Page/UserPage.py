@@ -10,7 +10,7 @@ class UserPage(Page):
         self.username = username
         self.password = password
 
-    def fetchHtml(self):
+    def fetch(self):
         self._html = Request().setCookie(self.username, self.password).get('http://lib.ecjtu.jx.cn/gdweb/ReaderTable.aspx')
         return self
 

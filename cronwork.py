@@ -12,7 +12,7 @@ import time
 import Config
 
 def cronwork1():
-    print '-START- fresh users\' borrowed books'
+    print('-START- fresh users\' borrowed books')
     users = []
     with db_session:
         users = select(u for u in User)[:]
@@ -50,7 +50,7 @@ def cronwork1():
                         index_code = index_code,
                         address = address
                         )
-    print '-STOP- fresh users\' borrowed books'
+    print('-STOP- fresh users\' borrowed books')
 
 def cronwork2():
     pass

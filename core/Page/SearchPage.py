@@ -6,6 +6,8 @@ from Page import Page
 from SearchParser import SearchParser
 from SearchRule import SearchRule
 from Request import Request
+import re
+import math
 
 class SearchPage(Page):
     def __init__(self, rule):
@@ -13,19 +15,59 @@ class SearchPage(Page):
         self.rule = rule
         self._page = 1
         self.BASE_URL = 'http://172.16.15.229'
+        self._per_page = 5
+        self.total_count = 0
+        self._html = ''
 
-    def fetchHtml(self):
+    def fetch(self):
         post_url = self.BASE_URL + '/gdweb/CombinationScarch.aspx'
         get_url = self.BASE_URL + '/gdweb/ScarchList.aspx?page='+str(self._page)
         data = self.rule.make()
         r = Request()
         r.post(post_url, data)
         self._html = r.get(get_url)
-        return self
+        return self 
+
+    def set_total_count(self):
+        if self.total_count == 0:
+            reg = u'width:100%;">...(\d*)'
+            if not self._html:
+                self.fetch()
+            total_page = int(re.findall(reg, self._html, re.M)[0])
+            s = SearchPage(self.rule)
+            s.total_count=1
+            self.total_count = (total_page-1)*self._per_page + len(s.fetch().parse())
+
+    def offset(self, offset, limit):
+        self.set_total_count()
+        if (offset-1)*limit > self.total_count:
+            return False
+        output = []
+        begin = (offset-1)*limit + 1
+        begin_page = int(math.ceil((begin-1)/float(self._per_page)))
+        begin_offset = (begin-1)%self._per_page
+        end = begin + limit - 1
+        end_page = int(math.ceil((end-1)/float(self._per_page)))
+        end_offset = (end-1)%self._per_page
+        for i in range(begin_page, end_page+1):
+            s = SearchPage(self.rule)
+            s.page = i
+            if limit < 5:
+                output += s.fetch().parse()[begin_offset:begin_offset+limit]
+            elif i == begin_page:
+                output += s.fetch().parse()[begin_offset:self._per_page+1]
+            elif i == end_page:
+                output += s.fetch().parse()[0:end_offset]
+            else:
+                output += s.fetch().parse()
+        if __name__ == "__main__":
+            print begin,begin_page,begin_offset,end,end_page,end_offset
+        return output
 
 
 if __name__ == "__main__":
     rule = SearchRule().add('title', 'ruby')
-    searchpage = SearchPage(rule)
-    print searchpage.fetchHtml().html()
-    print searchpage.parseHtml()
+    s = SearchPage(rule)
+    print s.offset(4,1)
+
+

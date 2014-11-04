@@ -3,21 +3,15 @@
 from Request import Request
 
 class Page:
-    def fetchHtml(self):
+    def fetch(self):
         pass
 
-    def parseHtml(self, html=''):
+    def parse(self, html=''):
         return self.parser.parse(html) if html else self.parser.parse(self._html)
 
     def html(self):
         return self._html
 
-    def nextPage(self):
+    def next_page(self):
         self._page += 1
-
-    def page(self, page):
-        self.setPage(page)
-        return self.fetchHtml()
-
-    def setPage(self, page):
-        self._page = page
+        return self
