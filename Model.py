@@ -1,23 +1,27 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from Model import *
-from History import History
-from Reading import Reading
-from Token import Token
+from pony.orm import *
+from Page.Request import Request
+import Config
 import hashlib
 import time
 
-class User(db.Entity):
+if Config.get('develop') == True:
+    db = Database('sqlite', 'test.sqlite', create_db=True)
+    sql_debug(True)
+else:
+    db = Database('mysql', host=Config.get('host'), user=Config.get('user'), passwd=Config.get('passwd'), db=Config.get('db'))
 
+class User(db.Entity):
     name = Optional(str)
     password = Optional(str)
     student_id = Required(str, unique=True)
     email = Optional(str, unique=True)
     reg_time = Required(str)
     renew_flag = Optional(bool)
-    tokens = Set(Token)
-    readings = Set(Reading)
-    histories = Set(History)
+    tokens = Set(lambda: Token)
+    readings = Set(lambda: Reading)
+    histories = Set(lambda: History)
 
     def allRenew(self):
         read_list = self.readings
@@ -51,12 +55,12 @@ class User(db.Entity):
         self.token = self.tokens.create(token=User._makeToken(self.student_id), last_use_time=str(int(time.time())))
 
     def checkToken(self, token):
-        token = self.tokens.get(token=token)
-        if token:
+        token = Token.get(token=token)
+        if token and self==token.user:
             if int(time.time()) - int(token.last_use_time) < Config.get('token_expire'):
-                token.last_use_time = time.time()
-                return true
-        return false
+                token.last_use_time = str(int(time.time()))
+                return True
+        return False
 
     @classmethod
     def _salt(self, username, password):
@@ -67,3 +71,31 @@ class User(db.Entity):
     @classmethod
     def _makeToken(self, username):
         return str(hashlib.md5(str(username)+str(int(time.time()))).hexdigest())
+
+class History(db.Entity):
+    user = Required(User)
+    name = Required(str)
+    code = Required(str)
+    time = Required(str)
+    type = Required(str)
+
+class Reading(db.Entity):
+    user = Required(User)
+    name = Required(str)
+    code = Required(str) #Such as 1420149
+    borrow_time = Required(str)
+    due_time = Required(str)
+    renewed = Required(bool)
+    renew_link = Required(str)
+    index_code = Required(str) #Such as TP368.5/A114
+    address = Required(str)
+
+    def renew(self):
+        Request().get(self.rewew_link)
+
+class Token(db.Entity):
+    user = Required(User)
+    token = Required(str)
+    last_use_time = Required(str)
+
+db.generate_mapping(create_tables=True)

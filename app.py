@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from flask import Flask, request
-from core.Page.SearchPage import SearchPage
-from core.Page.SearchRule import SearchRule
-from core.Model import *
+from flask import Flask, request, session
+from Page.SearchPage import SearchPage
+from Page.SearchRule import SearchRule
+from Model import *
 from pony.orm import *
 from pony.orm.serialization import to_dict
 import json
@@ -13,6 +13,25 @@ app = Flask(__name__)
 
 if Config.get('develop'):
     app.debug = True
+
+def check_permission(func):
+    def _check_permission(student_id):
+        u = User.getBySid(str(student_id))
+        if not u:
+            return json.dumps({'result':False, 'msg':'No such user'})        
+        if request.form.has_key('token'):
+            token = request.form['token']   
+        elif request.args.get('token'):
+            token = request.args.get('token')
+        elif session.has_key('token'):
+            token = session['token']
+        else:
+            return json.dumps({'result':False, 'msg':'Permission denied'})        
+        print token
+        if not u.checkToken(token):
+            return json.dumps({'result':False, 'msg':'Permission denied'})        
+        return func(student_id)
+    return _check_permission
 
 @app.route("/api/search")
 def search():
@@ -67,6 +86,7 @@ def history(student_id):
 
 @app.route("/api/user/<int:student_id>/borrowed")
 @db_session
+@check_permission
 def borrowed(student_id):
     u = User.getBySid(str(student_id))
     r = to_dict(u.readings)['Reading']
@@ -83,15 +103,22 @@ def borrowed(student_id):
 
 @app.route("/api/user/<int:student_id>")
 @db_session
+@check_permission
 def user(student_id):
     u = User.getBySid(str(student_id))
     if not u :
         return json.dumps({'result':False, 'msg':'No such user'})
     return json.dumps({'result':True, 'user':u.to_dict(exclude='password')}) 
 
+@app.route("/api/user/<int:student_id>/renew")
+@db_session
+@check_permission
+def renew(student_id):
+    pass
+
 @app.route("/")
 def index():
-    return 'hello world'
+    return 'hello world'   
 
 if __name__ == '__main__':
     cronwork.start()

@@ -4,9 +4,9 @@
 from pytz import utc
 from apscheduler.schedulers.background import BackgroundScheduler
 sched = BackgroundScheduler(timezone=utc)
-from core.Page.UserPage import UserPage
-from core.Page.Request import Request
-from core.User import User
+from Page.UserPage import UserPage
+from Page.Request import Request
+from Model import *
 from pony.orm import *
 import time
 import Config
@@ -22,7 +22,7 @@ def cronwork1():
         with db_session:
             u = User.get(student_id=u.student_id)
             p = UserPage(u.student_id, u.password) 
-            books = p.fetchHtml().parseHtml()['books']
+            books = p.fetch().parse()['books']
             [r.delete() for r in u.readings]
             for b in books:
                 name = b[1].decode('utf-8')
