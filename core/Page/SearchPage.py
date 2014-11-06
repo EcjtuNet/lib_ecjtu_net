@@ -44,20 +44,20 @@ class SearchPage(Page):
             return False
         output = []
         begin = (offset-1)*limit + 1
-        begin_page = int(math.ceil((begin-1)/float(self._per_page)))
+        begin_page = int(math.ceil(begin/float(self._per_page)))
         begin_offset = (begin-1)%self._per_page
         end = begin + limit - 1
-        end_page = int(math.ceil((end-1)/float(self._per_page)))
+        end_page = int(math.ceil(end/float(self._per_page)))
         end_offset = (end-1)%self._per_page
         for i in range(begin_page, end_page+1):
             s = SearchPage(self.rule)
-            s.page = i
-            if limit < 5:
+            s._page = i
+            if limit < 5 and begin_page==end_page:
                 output += s.fetch().parse()[begin_offset:begin_offset+limit]
             elif i == begin_page:
                 output += s.fetch().parse()[begin_offset:self._per_page+1]
             elif i == end_page:
-                output += s.fetch().parse()[0:end_offset]
+                output += s.fetch().parse()[0:end_offset+1]
             else:
                 output += s.fetch().parse()
         if __name__ == "__main__":

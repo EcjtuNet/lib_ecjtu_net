@@ -21,8 +21,9 @@ def search():
     key = key.encode('utf8') if key else ''
     author = author.encode('utf8') if author else ''
     page = 1 if not request.args.get('page') else int(request.args.get('page'))
+    limit = 20 if not request.args.get('limit') else int(request.args.get('limit'))
     r = SearchRule().add('title', key).add('author', author)
-    result = SearchPage(r).page(page).parseHtml()
+    result = SearchPage(r).offset(page, limit)
     return json.dumps(result)
     
 @app.route("/api/login", methods=['POST'])
@@ -68,11 +69,16 @@ def history(student_id):
 @db_session
 def borrowed(student_id):
     u = User.getBySid(str(student_id))
-    r = to_dict(u.readings)
+    r = to_dict(u.readings)['Reading']
+    r = [r[b] for b in r]
+    result = []
+    for row in r:
+        del row['user']
+        result.append(row)
     return json.dumps({
         'result':True,
         'user':u.to_dict(exclude='password'),
-        'readings':r
+        'readings':result
         })
 
 @app.route("/api/user/<int:student_id>")
