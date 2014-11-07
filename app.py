@@ -8,6 +8,7 @@ from pony.orm import *
 from pony.orm.serialization import to_dict
 import json
 import cronwork
+from functools import wraps
 
 app = Flask(__name__)
 
@@ -15,7 +16,9 @@ if Config.get('develop'):
     app.debug = True
 
 def check_permission(func):
-    def _check_permission(student_id):
+    @wraps(func)
+    def _check_permission(**args):
+        student_id = args['student_id']
         u = User.getBySid(str(student_id))
         if not u:
             return json.dumps({'result':False, 'msg':'No such user'})        
@@ -27,10 +30,9 @@ def check_permission(func):
             token = session['token']
         else:
             return json.dumps({'result':False, 'msg':'Permission denied'})        
-        print token
         if not u.checkToken(token):
             return json.dumps({'result':False, 'msg':'Permission denied'})        
-        return func(student_id)
+        return func(**args)
     return _check_permission
 
 @app.route("/api/search")
@@ -75,6 +77,7 @@ def register():
 
 @app.route("/api/user/<int:student_id>/history")
 @db_session
+@check_permission
 def history(student_id):
     u = User.getBySid(str(student_id))
     h = to_dict(u.histories)
@@ -101,6 +104,12 @@ def borrowed(student_id):
         'readings':result
         })
 
+@app.route("/api/user/<int:student_id>/borrowed/<int:book_id>")
+@db_session
+@check_permission
+def borrowed_book(student_id, book_id):
+    pass
+
 @app.route("/api/user/<int:student_id>")
 @db_session
 @check_permission
@@ -109,12 +118,6 @@ def user(student_id):
     if not u :
         return json.dumps({'result':False, 'msg':'No such user'})
     return json.dumps({'result':True, 'user':u.to_dict(exclude='password')}) 
-
-@app.route("/api/user/<int:student_id>/renew")
-@db_session
-@check_permission
-def renew(student_id):
-    pass
 
 @app.route("/")
 def index():
