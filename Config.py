@@ -11,7 +11,10 @@ config = {
     'charset' : 'utf8',
     'develop' : True,
     'auto_renew_time' : 3 * 24 * 60 * 60, #second
-    'lib_base_url' : 'http://lib.ecjtu.jx.cn/gdweb/'
+    'lib_base_url' : 'http://lib.ecjtu.jx.cn/gdweb/',
+    'redis_host' : 'localhost',
+    'redis_port' : '6379',
+    'redis_db' : 0
 }
 def get(str):
     return config[str]
