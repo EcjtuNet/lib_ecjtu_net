@@ -8,6 +8,9 @@ from SearchRule import SearchRule
 from Request import Request
 import re
 import math
+import sys
+sys.path.append('../')
+import Cache
 
 class SearchPage(Page):
     def __init__(self, rule):
@@ -23,9 +26,13 @@ class SearchPage(Page):
         post_url = self.BASE_URL + '/gdweb/CombinationScarch.aspx'
         get_url = self.BASE_URL + '/gdweb/ScarchList.aspx?page='+str(self._page)
         data = self.rule.make()
-        r = Request()
-        r.post(post_url, data)
-        self._html = r.get(get_url)
+        html = Cache.get(get_url + ':' + data)
+        if not html: 
+            r = Request()
+            r.post(post_url, data)
+            html = r.get(get_url)
+            Cache.set(get_url + ':' + data, html)
+        self._html = html
         return self 
 
     def set_total_count(self):
