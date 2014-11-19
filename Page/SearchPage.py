@@ -41,13 +41,11 @@ class SearchPage(Page):
 
     def set_total_count(self):
         if self.total_count == 0:
-            reg = u'width:100%;">...(\d*)'
+            reg = u'width:416px;">...............:(\d*)'
             if not self._html:
                 self.fetch()
-            total_page = int(re.findall(reg, self._html, re.M)[0])
-            s = SearchPage(self.rule)
-            s.total_count=1
-            self.total_count = (total_page-1)*self._per_page + len(s.fetch().parse())
+            result = re.findall(reg, self._html, re.M)
+            self.total_count = int(result[0]) if result else 0
 
     def offset(self, offset, limit):
         self.set_total_count()
