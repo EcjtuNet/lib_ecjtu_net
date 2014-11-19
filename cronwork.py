@@ -6,11 +6,15 @@ from apscheduler.schedulers.background import BackgroundScheduler
 sched = BackgroundScheduler(timezone=utc)
 from Page.UserPage import UserPage
 from Page.Request import Request
+from Page.SearchPage import SearchPage
 from Model import *
 from pony.orm import *
 import time
 import Config
+import Cache
+import re
 
+#fresh borrowed books
 def cronwork1():
     print('-START- fresh users\' borrowed books')
     users = []
@@ -52,11 +56,21 @@ def cronwork1():
                         )
     print('-STOP- fresh users\' borrowed books')
 
+#fresh cache
 def cronwork2():
-    pass
-
+    print('-START- fresh cache')
+    r = Cache.r
+    keys = r.keys('search:*')
+    for i in keys:
+        reg = '^search:(.*):(\d+)$'
+        result = re.findall(reg, i)[0]
+        r.delete(i)
+        print(result)
+        print(SearchPage().fetch(result[0], result[1])._html)
+    print('-STOP- fresh cache')
 sched.add_job(cronwork1, 'interval', hours=5)
-sched.add_job(cronwork2, 'interval', hours=12)
+sched.add_job(cronwork2, 'interval', days=10)
+
 def start():
     sched.start()
     print 'cronwork started'

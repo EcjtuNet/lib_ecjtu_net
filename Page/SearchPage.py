@@ -13,7 +13,7 @@ sys.path.append('../')
 import Cache
 
 class SearchPage(Page):
-    def __init__(self, rule):
+    def __init__(self, rule=''):
         self.parser = SearchParser()
         self.rule = rule
         self._page = 1
@@ -22,16 +22,20 @@ class SearchPage(Page):
         self.total_count = 0
         self._html = ''
 
-    def fetch(self):
+    def fetch(self, data='', page=''):
+        if not page:
+            page = self._page
         post_url = self.BASE_URL + '/gdweb/CombinationScarch.aspx'
-        get_url = self.BASE_URL + '/gdweb/ScarchList.aspx?page='+str(self._page)
-        data = self.rule.make()
-        html = Cache.get(get_url + ':' + data)
+        get_url = self.BASE_URL + '/gdweb/ScarchList.aspx?page='+str(page)
+        if not data:
+            data = self.rule.make()
+        cache_key = 'search' + ':' + data + ':' + str(page)
+        html = Cache.get(cache_key)
         if not html: 
             r = Request()
             r.post(post_url, data)
             html = r.get(get_url)
-            Cache.set(get_url + ':' + data, html)
+            Cache.set(cache_key, html, 3*30*24*60*60)
         self._html = html
         return self 
 
