@@ -69,6 +69,9 @@ class User:
         elif name in self.__dict__['data']:
             self.__dict__['data'][name] = value
 
+    def checkToken(self):
+        return self.sync()
+
     def sync(self):
         u = UserCenter.editUser(self.username, self.token, self.data)
         if not u:

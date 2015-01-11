@@ -9,6 +9,7 @@ from pony.orm.serialization import to_dict
 import json
 import cronwork
 from functools import wraps
+from UserCenter import UserCenter
 
 app = Flask(__name__)
 
@@ -19,9 +20,6 @@ def check_permission(func):
     @wraps(func)
     def _check_permission(**args):
         student_id = args['student_id']
-        u = User.getBySid(str(student_id))
-        if not u:
-            return json.dumps({'result':False, 'msg':'No such user'})        
         if request.form.has_key('token'):
             token = request.form['token']   
         elif request.args.get('token'):
@@ -30,7 +28,8 @@ def check_permission(func):
             token = session['token']
         else:
             return json.dumps({'result':False, 'msg':'Permission denied'})        
-        if not u.checkToken(token):
+        u = User.checkToken(student_id, token)
+        if not u:
             return json.dumps({'result':False, 'msg':'Permission denied'})        
         return func(**args)
     return _check_permission
@@ -46,34 +45,6 @@ def search():
     r = SearchRule().add('title', key).add('author', author)
     result = SearchPage(r).offset(page, limit)
     return json.dumps(result)
-    
-@app.route("/api/login", methods=['POST'])
-@db_session
-def login():
-    username = request.form['username']
-    password = request.form['password']
-    u = User.login(username, password)
-    if u:
-        return json.dumps({'result':True,'token':u.token.to_dict()['token']})
-    else:
-        return json.dumps({'result':False, 'msg':'Username or password is incorrect', 'token':''})
-    
-@app.route("/api/register", methods=['POST'])
-@db_session
-def register():
-    username = request.form['username']
-    password = request.form['password']
-    if User.is_exist(username):
-        return json.dumps({'result':False, 'msg':'Username exist'})
-    u = User.register(username, password)
-    if u:
-        return json.dumps({
-            'result':True,
-            'msg':'ok',
-            'user':u.to_dict()
-            })
-    else:
-        return json.dumps({'result':False, 'msg':'Register error'})
 
 @app.route("/api/user/<int:student_id>/history")
 @db_session
